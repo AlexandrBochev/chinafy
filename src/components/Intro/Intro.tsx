@@ -6,19 +6,18 @@ import usersIcons from '../../assets/users-icons.png'
 import twoCircles from '../../assets/two-circles.svg'
 import earth from '../../assets/earth.svg'
 import plus from '../../assets/plus.svg'
-import laptopBox from '../../assets/laptop-box.jpg'
-import phone from '../../assets/phone.webp'
-import laptop from '../../assets/laptop.webp'
-import { useState } from "react"
-
-const slides = [
-  {id: 1, img: laptopBox},
-  {id: 2, img: phone},
-  {id: 3, img: laptop}
-]
+import { useEffect, useState } from "react"
+import { slides } from "../../models/models"
 
 const Intro = () => {
   const [active, setActive] = useState(1)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      active < slides.length ? setActive(active + 1) : setActive(1)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [active])
 
   return (
     <section className="container w-full h-[56.25rem] grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem]">

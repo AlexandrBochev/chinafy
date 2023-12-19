@@ -1,12 +1,4 @@
-import { ReactElement } from "react"
-
-interface ButtonProps {
-  children: ReactElement | string
-  onClick?: () => void
-  ball?: boolean
-  square?: boolean
-  color?: 'bg-black text-white' | 'bg-yellow' | 'bg-lilac' | 'bg-green' | 'bg-white'
-}
+import { ButtonProps } from "../../models/models"
 
 const Button = ({ children, onClick, ball, square, color }: ButtonProps) => {
   return (
