@@ -21,7 +21,7 @@ const Intro = () => {
   const [active, setActive] = useState(1)
 
   return (
-    <section className="container w-full h-screen grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem]">
+    <section className="container w-full h-[56.25rem] grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem]">
       <div className="w-full h-full flex flex-col justify-end text-start">
         <h1 className="leading-none mb-[2.125rem]">Make Your Site Work in China</h1>
         <div className="max-w-[33.375rem] flex items-center justify-between mb-20">
@@ -59,15 +59,15 @@ const Intro = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-full flex items-end justify-end rounded-[1.25rem] bg-lilac p-[1.5625rem]">
-        <div className="absolute left-[1.5625rem] top-5 flex w-[5.125rem] items-center justify-between">
+      <div className="relative w-full h-full min-w-0 flex items-end justify-end rounded-[1.25rem] bg-lilac overflow-hidden p-[1.5625rem]">
+        <div className="absolute left-[1.5625rem] top-5 flex w-[5.125rem] items-center justify-between z-10">
           <Button ball color={ 'bg-white' }><img src={ twoCircles } alt="Two Circles" width={20} height={20} /></Button>
           <Button ball color={ 'bg-white' }><img src={ earth } alt="Earth" width={20} height={20} /></Button>
         </div>
-        <div className="flex">
+        <div className="flex z-10">
           <div className="flex flex-col items-end mr-3">
             <img src={ plus } alt="Plus" width={30} height={30} />
-            <p className="text-left mt-2 mr-4">Explore our<br />latest projects</p>
+            <p className="text-left text-white mt-2 mr-4">Explore our<br />latest projects</p>
           </div>
           <ul className="flex w-[12.62rem] h-[4.75rem] items-center justify-between bg-white rounded-full px-3">
             { slides.map(slide =>
@@ -85,6 +85,20 @@ const Intro = () => {
               )}
           </ul>
         </div>
+        <div>
+            { slides.map(slide =>
+              <div key={ slide.id }>
+                <img
+                  src={ slide.img }
+                  alt="Slide"
+                  className={`
+                    absolute top-0 left-0 w-full h-full object-cover transition-all duration-700
+                    ${ active === slide.id ? 'opacity-100' : 'opacity-0' }
+                  `}
+                />
+              </div>
+            )}
+          </div>
       </div>
     </section>
   )
