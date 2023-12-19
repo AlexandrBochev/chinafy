@@ -3,8 +3,23 @@ import { ArrowSm } from "../icons/ArrowSm"
 import { IntroBlock } from "../icons/IntroBlock"
 import { IntroBlockSm } from "../icons/IntroBlockSm"
 import usersIcons from '../../assets/users-icons.png'
+import twoCircles from '../../assets/two-circles.svg'
+import earth from '../../assets/earth.svg'
+import plus from '../../assets/plus.svg'
+import laptopBox from '../../assets/laptop-box.jpg'
+import phone from '../../assets/phone.webp'
+import laptop from '../../assets/laptop.webp'
+import { useState } from "react"
+
+const slides = [
+  {id: 1, img: laptopBox},
+  {id: 2, img: phone},
+  {id: 3, img: laptop}
+]
 
 const Intro = () => {
+  const [active, setActive] = useState(1)
+
   return (
     <section className="container w-full h-screen grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem]">
       <div className="w-full h-full flex flex-col justify-end text-start">
@@ -44,8 +59,32 @@ const Intro = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-full flex items-end justify-end rounded-[1.25rem] bg-lilac p-[1.5625rem]">
-        <h1>Slider</h1>
+      <div className="relative w-full h-full flex items-end justify-end rounded-[1.25rem] bg-lilac p-[1.5625rem]">
+        <div className="absolute left-[1.5625rem] top-5 flex w-[5.125rem] items-center justify-between">
+          <Button ball color={ 'bg-white' }><img src={ twoCircles } alt="Two Circles" width={20} height={20} /></Button>
+          <Button ball color={ 'bg-white' }><img src={ earth } alt="Earth" width={20} height={20} /></Button>
+        </div>
+        <div className="flex">
+          <div className="flex flex-col items-end mr-3">
+            <img src={ plus } alt="Plus" width={30} height={30} />
+            <p className="text-left mt-2 mr-4">Explore our<br />latest projects</p>
+          </div>
+          <ul className="flex w-[12.62rem] h-[4.75rem] items-center justify-between bg-white rounded-full px-3">
+            { slides.map(slide =>
+              <li key={slide.id}>
+                <img
+                  src={ slide.img }
+                  alt="Slide"
+                  className={`
+                    rounded-full cursor-pointer object-cover transition-all
+                    ${ active === slide.id ? 'border-2 p-[0.1875rem] w-[3.75rem] h-[3.75rem]' : 'w-[3.125rem] h-[3.125rem]' }
+                  `}
+                  onClick={() => setActive(slide.id)}
+                />
+              </li> 
+              )}
+          </ul>
+        </div>
       </div>
     </section>
   )
