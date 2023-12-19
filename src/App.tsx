@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="w-full flex flex-col justify-center">
+      <main className="w-full flex flex-col items-center">
         <Intro />
         <CrossBorderBlock />
       </main>
