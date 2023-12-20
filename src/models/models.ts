@@ -19,6 +19,10 @@ export interface LoadingSpeedCardProps {
   left?: boolean
 }
 
+export interface TickerProps {
+  children: React.ReactNode
+}
+
 // Constants
 export const slides = [
   {id: 1, img: laptopBox},
@@ -45,3 +49,21 @@ export const motionSettings = {
   whileInView: { opacity: 1 },
   viewport: { once: true }
 }
+
+export const sloganWords = [
+  {id: 1, name: 'securely'},
+  {id: 2, name: 'fast'},
+  {id: 3, name: 'fully'},
+  {id: 4, name: 'securely'},
+  {id: 5, name: 'fast'},
+  {id: 6, name: 'fully'},
+  {id: 7, name: 'securely'},
+  {id: 8, name: 'fast'},
+  {id: 9, name: 'fully'},
+  {id: 10, name: 'securely'},
+  {id: 11, name: 'fast'},
+  {id: 12, name: 'fully'},
+  {id: 13, name: 'securely'},
+  {id: 14, name: 'fast'},
+  {id: 15, name: 'fully'},
+]
