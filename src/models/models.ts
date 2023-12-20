@@ -2,6 +2,11 @@ import laptopBox from '../assets/laptop-box.jpg'
 import phone from '../assets/phone.webp'
 import laptop from '../assets/laptop.webp'
 import { ReactElement } from 'react'
+import umbc from '../assets/umbc-logo.svg'
+import akorn from '../assets/akorn-logo.svg'
+import singer from '../assets/singer-logo.svg'
+import bnl from '../assets/bnl-logo.svg'
+import bershka from '../assets/bershka-logo.svg'
 
 // Types
 export interface ButtonProps {
@@ -66,4 +71,17 @@ export const sloganWords = [
   {id: 13, name: 'securely'},
   {id: 14, name: 'fast'},
   {id: 15, name: 'fully'},
+]
+
+export const logos = [
+  {id: 1, img: umbc},
+  {id: 2, img: akorn},
+  {id: 3, img: singer},
+  {id: 4, img: bnl},
+  {id: 5, img: bershka},
+  {id: 6, img: umbc},
+  {id: 7, img: akorn},
+  {id: 8, img: singer},
+  {id: 9, img: bnl},
+  {id: 10, img: bershka},
 ]

@@ -4,6 +4,7 @@ import { Header } from "./components/Header/Header"
 import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
 import { Ticker } from "./components/Ticker/Ticker"
+import { TickerLogos } from "./components/TickerLogos/TickerLogos"
 import { TickerWords } from "./components/TickerWords/TickerWords"
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <TickerWords />
         </Ticker>
         <ComeIn />
+        <TickerLogos />
       </main>
     </>
   )
