@@ -32,12 +32,12 @@ const LoadingSpeed = () => {
             <Clock />
           </div>
         </div>
-        <h1 className="mb-[2.5rem]">
+        <h3 className="mb-[2.5rem]">
           Does your website work<br />in China?
           <span className="inline-block ml-4">
-            <img src={ flag } alt="China Flag" />
+            <img src={ flag } alt="China Flag" className="-mb-4" />
           </span>
-        </h1>
+        </h3>
         <m.div
           className="relative w-full max-w-[65.875rem] grid grid-cols-2 gap-4 mx-auto"
           { ...motionSettings }
