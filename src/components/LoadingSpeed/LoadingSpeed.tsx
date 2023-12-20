@@ -2,9 +2,24 @@ import { Clock } from "../icons/Clock"
 import flag from '../../assets/china-flag.png'
 import { LoadingSpeedCard } from "./LoadingSpeedCard"
 import { useState } from "react"
+import { motion as m } from "framer-motion"
+import { motionSettings } from "../../models/models"
 
 const LoadingSpeed = () => {
-  const [seconds, setSeconds] = useState(15)
+  const [count, setCount] = useState(0)
+
+  const timer = () => {
+    const interval = setInterval(() => {
+      setCount(prev => {
+        if (prev < 15) {
+          return prev + 1
+        } else {
+          clearInterval(interval)
+          return prev
+        }
+      })
+    }, 1000)
+  }
 
   return (
     <section className="w-full bg-background py-[6.25rem]">
@@ -23,17 +38,22 @@ const LoadingSpeed = () => {
             <img src={ flag } alt="China Flag" />
           </span>
         </h1>
-        <div className="relative w-full max-w-[65.875rem] grid grid-cols-2 gap-4 mx-auto">
+        <m.div
+          className="relative w-full max-w-[65.875rem] grid grid-cols-2 gap-4 mx-auto"
+          { ...motionSettings }
+          onAnimationStart={timer}
+        >
           <LoadingSpeedCard title='Before Chinafy' seconds={ 15 } left />
           <LoadingSpeedCard title='After Chinafy' seconds={ 3.1 } color="bg-green" />
           <div
             className="
-              absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] flex items-center justify-center text-xl bg-background w-[6.25rem] h-[6.25rem] rounded-full z-20
+              absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]
+              flex items-center justify-center text-xl bg-background w-[6.25rem] h-[6.25rem] rounded-full z-20
             "
           >
-            { seconds }
+            <span>00:</span>{ count < 10 ? `0${ count }` : count }
           </div>
-        </div>
+        </m.div>
       </div>
     </section>
   )

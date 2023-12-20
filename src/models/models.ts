@@ -12,6 +12,13 @@ export interface ButtonProps {
   color?: 'bg-black text-white' | 'bg-yellow' | 'bg-lilac' | 'bg-green' | 'bg-white'
 }
 
+export interface LoadingSpeedCardProps {
+  title: string
+  seconds: number
+  color?: string
+  left?: boolean
+}
+
 // Constants
 export const slides = [
   {id: 1, img: laptopBox},
@@ -24,3 +31,17 @@ export const performance = [
   {id: 2, title: 'fast', color: 'bg-yellow'},
   {id: 3, title: 'fully', color: 'bg-gray'},
 ]
+
+export const cardColors = [
+  {id: 1, color: 'bg-lilac'},
+  {id: 2, color: 'bg-yellow'},
+  {id: 3, color: 'bg-black/10'},
+  {id: 4, color: 'bg-lilac'},
+  {id: 5, color: 'bg-yellow'},
+]
+
+export const motionSettings = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true }
+}
