@@ -12,6 +12,10 @@ import aws from '../assets/logos/aws-logo.svg'
 import microsoft from '../assets/logos/microsoft-logo.svg'
 import cache from '../assets/logos/cache-logo.svg'
 import cloud from '../assets/logos/cloud-logo.svg'
+import process1 from '../assets/process-icons/process-1.svg'
+import process2 from '../assets/process-icons/process-2.svg'
+import process3 from '../assets/process-icons/process-3.svg'
+import process4 from '../assets/process-icons/process-4.svg'
 
 import customer1 from '../assets/customers/customer-1.png'
 
@@ -159,5 +163,28 @@ export const customers = [
     position: 'Product Marketing Manager',
     comment: "The process was super easy and I'm really glad we selected your team. The experience has been beyond my expectations.",
     photo: customer1
+  },
+]
+
+export const process = [
+  {
+    id: 1,
+    description: "Submit your site",
+    icon: process1
+  },
+  {
+    id: 2,
+    description: "We'll scan your site to create a Chinafy version, and generate your plan.",
+    icon: process2
+  },
+  {
+    id: 3,
+    description: "Once you subscribe, our engineers then set-up and test the Chinafy version of your website.",
+    icon: process3
+  },
+  {
+    id: 4,
+    description: "Launch your Chinafy site with a quick 15 minute DNS update.",
+    icon: process4
   },
 ]
