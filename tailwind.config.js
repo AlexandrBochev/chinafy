@@ -14,6 +14,7 @@ module.exports = {
       'background': '#F8F8F8',
     },
     screens: {
+      'sm': '640px',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',

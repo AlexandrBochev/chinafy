@@ -7,6 +7,7 @@ import akorn from '../assets/akorn-logo.svg'
 import singer from '../assets/singer-logo.svg'
 import bnl from '../assets/bnl-logo.svg'
 import bershka from '../assets/bershka-logo.svg'
+import customer1 from '../assets/customers/customer-1.png'
 
 // Types
 export interface ButtonProps {
@@ -26,6 +27,13 @@ export interface LoadingSpeedCardProps {
 
 export interface TickerProps {
   children: React.ReactNode
+}
+
+export interface CustomerCardProps {
+  name: string
+  position: string
+  comment: string
+  photo: string
 }
 
 // Constants
@@ -84,4 +92,35 @@ export const logos = [
   {id: 8, img: singer},
   {id: 9, img: bnl},
   {id: 10, img: bershka},
+]
+
+export const customers = [
+  {
+    id: 1,
+    name: 'Michela Nalin',
+    position: 'Marketing Manager for Nolato',
+    comment: 'Chinafy has made it possible for us to be sure that our web visitors in China have the same good experience as all our other visitors in the rest of the world.',
+    photo: customer1
+  },
+  {
+    id: 2,
+    name: 'Natasha Baker',
+    position: 'CEO & Founder of SnapEDA',
+    comment: "Over 1 million engineers use SnapEDA each year all over the world. We were attracted to Chinafy's service because of how easy they made it to support the Chinese market.",
+    photo: customer1
+  },
+  {
+    id: 3,
+    name: 'Ignacio Cerro',
+    position: 'CFO, Global Alumni for MIT Professional Education',
+    comment: 'We are very happy with working with Chinafy. They went above and beyond to ensure we help MIT Professional Education deliver world-class online education in China.',
+    photo: customer1
+  },
+  {
+    id: 4,
+    name: 'Nicolas Duchesne',
+    position: 'Product Marketing Manager',
+    comment: "The process was super easy and I'm really glad we selected your team. The experience has been beyond my expectations.",
+    photo: customer1
+  },
 ]

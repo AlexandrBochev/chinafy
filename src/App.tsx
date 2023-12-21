@@ -1,5 +1,6 @@
 import { ComeIn } from "./components/ComeIn/ComeIn"
 import { CrossBorderBlock } from "./components/CrossBorderBlock/CrossBorderBlock"
+import { Customers } from "./components/Customers/Customers"
 import { Header } from "./components/Header/Header"
 import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
@@ -20,6 +21,7 @@ const App = () => {
         </Ticker>
         <ComeIn />
         <TickerLogos />
+        <Customers />
       </main>
     </>
   )

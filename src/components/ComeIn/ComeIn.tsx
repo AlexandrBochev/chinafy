@@ -39,7 +39,7 @@ const ComeIn = () => {
         <div
           className={`
             absolute top-0 flex card-hover transition-all duration-500
-            ${ hover ? '-translate-x-60 2xl:-translate-x-0': 'left-0' }
+            ${ hover ? '-translate-x-60': 'left-0' }
           `}
         >
           <ComeInCard background={ comeInCardBg1 }>
