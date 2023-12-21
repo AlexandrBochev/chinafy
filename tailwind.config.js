@@ -30,7 +30,7 @@ module.exports = {
     },
     extend: {
       animation: {
-        'ticker': 'ticker 10s linear infinite',
+        'ticker': 'ticker 8s linear infinite',
       },
       keyframes: {
         ticker: {

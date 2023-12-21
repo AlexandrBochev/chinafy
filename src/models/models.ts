@@ -2,11 +2,17 @@ import laptopBox from '../assets/laptop-box.jpg'
 import phone from '../assets/phone.webp'
 import laptop from '../assets/laptop.webp'
 import { ReactElement } from 'react'
-import umbc from '../assets/umbc-logo.svg'
-import akorn from '../assets/akorn-logo.svg'
-import singer from '../assets/singer-logo.svg'
-import bnl from '../assets/bnl-logo.svg'
-import bershka from '../assets/bershka-logo.svg'
+import umbc from '../assets/logos/umbc-logo.svg'
+import akorn from '../assets/logos/akorn-logo.svg'
+import singer from '../assets/logos/singer-logo.svg'
+import bnl from '../assets/logos/bnl-logo.svg'
+import bershka from '../assets/logos/bershka-logo.svg'
+import alibaba from '../assets/logos/alibaba-logo.svg'
+import aws from '../assets/logos/aws-logo.svg'
+import microsoft from '../assets/logos/microsoft-logo.svg'
+import cache from '../assets/logos/cache-logo.svg'
+import cloud from '../assets/logos/cloud-logo.svg'
+
 import customer1 from '../assets/customers/customer-1.png'
 
 // Types
@@ -34,6 +40,15 @@ export interface CustomerCardProps {
   position: string
   comment: string
   photo: string
+}
+
+export interface TickerLogosProps {
+  title?: string
+  color?: 'bg-gray' | 'bg-yellow'
+  logos: {
+    id: number
+    img: string
+  }[]
 }
 
 // Constants
@@ -92,6 +107,28 @@ export const logos = [
   {id: 8, img: singer},
   {id: 9, img: bnl},
   {id: 10, img: bershka},
+  {id: 11, img: umbc},
+  {id: 12, img: akorn},
+  {id: 13, img: singer},
+  {id: 14, img: bnl},
+  {id: 15, img: bershka},
+]
+
+export const logos2 = [
+  {id: 1, img: alibaba},
+  {id: 2, img: aws},
+  {id: 3, img: microsoft},
+  {id: 4, img: cache},
+  {id: 5, img: cloud},
+  {id: 6, img: alibaba},
+  {id: 7, img: aws},
+  {id: 8, img: microsoft},
+  {id: 9, img: cache},
+  {id: 10, img: cloud},
+  {id: 11, img: alibaba},
+  {id: 12, img: aws},
+  {id: 13, img: microsoft},
+  {id: 14, img: cache},
 ]
 
 export const customers = [
