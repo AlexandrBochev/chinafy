@@ -16,7 +16,7 @@ const ComeIn = () => {
   const [hover, setHover] = useState(false)
 
   return (
-    <section className="container w-full pt-[8.75rem] pb-[6.25rem]">
+    <section className="container w-full pt-[8.75rem] pb-[6.25rem] mx-auto" id='Service'>
       <div className='flex items-center justify-between mb-[3.125rem] mx-auto'>
         <div className='flex'>
           <div className='flex w-10 h-10 rounded-full items-center justify-center bg-background mr-3'>

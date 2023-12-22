@@ -12,7 +12,7 @@ const CrossBorderBlock = () => {
   }, [active])
 
   return (
-    <section className="container pt-[7.1875rem] pb-[6.25rem]">
+    <section className="container pt-[7.1875rem] pb-[6.25rem] mx-auto">
       <h2 className="mb-[2.1875rem]">
         Cross-border web<br />performance to load
         <span className="relative w-[23rem] h-[6rem] inline-block text-left -mb-5 overflow-hidden">

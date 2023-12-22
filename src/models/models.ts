@@ -1,7 +1,7 @@
 import laptopBox from '../assets/laptop-box.jpg'
 import phone from '../assets/phone.webp'
 import laptop from '../assets/laptop.webp'
-import { ReactElement } from 'react'
+import { MouseEvent, ReactElement } from 'react'
 import umbc from '../assets/logos/umbc-logo.svg'
 import akorn from '../assets/logos/akorn-logo.svg'
 import singer from '../assets/logos/singer-logo.svg'
@@ -16,7 +16,6 @@ import process1 from '../assets/process-icons/process-1.svg'
 import process2 from '../assets/process-icons/process-2.svg'
 import process3 from '../assets/process-icons/process-3.svg'
 import process4 from '../assets/process-icons/process-4.svg'
-
 import customer1 from '../assets/customers/customer-1.png'
 
 // Types
@@ -53,6 +52,11 @@ export interface TickerLogosProps {
     id: number
     img: string
   }[]
+}
+
+export interface BurgerMenuProps {
+  isMenuOpen: boolean
+  onClick: () => void
 }
 
 // Constants
@@ -188,3 +192,20 @@ export const process = [
     icon: process4
   },
 ]
+
+export const menu = [
+  { id:1, name: "Home" },
+  { id:2, name: "About" },
+  { id:3, name: "Service" },
+  { id:4, name: "Customers" },
+  { id:5, name: "Process" },
+  { id:6, name: "Solutions" },
+  { id:7, name: "Plans" },
+]
+
+// Functions
+export const smoothScroll = (e: MouseEvent<HTMLAnchorElement>, id: string) => {
+  e.preventDefault()
+  const target = document.getElementById(id)
+  target?.scrollIntoView({ behavior: 'smooth' })
+}

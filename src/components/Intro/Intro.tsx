@@ -20,7 +20,7 @@ const Intro = () => {
   }, [active])
 
   return (
-    <section className="container w-full h-[56.25rem] grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem]">
+    <section className="container w-full h-[56.25rem] grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem] mx-auto">
       <div className="w-full h-full flex flex-col justify-end text-start">
         <h1 className="leading-none mb-[2.125rem]">Make Your Site Work in China</h1>
         <div className="max-w-[33.375rem] flex items-center justify-between mb-20">

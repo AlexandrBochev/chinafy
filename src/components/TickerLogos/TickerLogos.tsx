@@ -3,7 +3,7 @@ import { Ticker } from "../Ticker/Ticker"
 
 const TickerLogos = ({ title, color, logos }: TickerLogosProps) => {
   return (
-    <section className="container pb-11 overflow-hidden">
+    <section className="container pb-11 overflow-hidden mx-auto">
       <p className="text-xl font-medium mb-8">{ title }</p>
       
       <div className={`flex w-full items-center h-[9.375rem] ${ color } rounded-[1.25rem]`}>

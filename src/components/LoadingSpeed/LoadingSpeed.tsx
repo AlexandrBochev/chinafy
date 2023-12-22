@@ -22,7 +22,7 @@ const LoadingSpeed = () => {
   }
 
   return (
-    <section className="w-full bg-background py-[6.25rem]">
+    <section className="w-full bg-background py-[6.25rem]" id='About'>
       <div className="container mx-auto">
         <div className="w-full flex items-center justify-center mb-5">
           <p className="flex items-center justify-center h-[2.875rem] text-center bg-white rounded-full px-[1.375rem] mr-[0.625rem]">
