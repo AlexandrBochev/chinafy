@@ -18,7 +18,7 @@ const CustomerCard = (props: CustomerCardProps) => {
         className="
           absolute top-12 md:top-14 left-0 flex flex-col items-start justify-between w-full h-[19.7rem] md:h-[22.875rem] 
           rounded-[1.875rem] bg-gray text-left p-[1.875rem]
-          group-hover:bg-lilac group-hover:rotate-[5deg] group-hover:translate-y-[7.3rem] group-hover:z-50 group-hover:shadow-md transition-all
+          group-hover:bg-lilac group-hover:rotate-[5deg] group-hover:translate-y-[7.3rem] md:group-hover:translate-y-[8.6rem] group-hover:z-50 group-hover:shadow-md transition-all
         "
       >
         <div>
