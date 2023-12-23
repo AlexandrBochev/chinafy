@@ -4,7 +4,7 @@ import { customers } from "../../models/models"
 
 const Customers = () => {
   return (
-    <section className="container pt-11 pb-52 mx-auto" id="Customers">
+    <section className="container pb-52 mx-auto" id="Customers">
       <div className="flex items-center justify-center mb-5 mx-auto">
         <div className="flex items-center justify-center h-[2.875rem] rounded-full px-[1.375rem] bg-gray mr-[0.625rem]">
           <p>Our Customers</p>

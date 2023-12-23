@@ -24,12 +24,11 @@ const App = () => {
           <TickerWords />
         </Ticker>
         <ComeIn />
-
-        {/* <TickerLogos title="Proudly Powering the Sites You Love" color="bg-gray" logos={ logos } /> */}
-        {/* <Customers /> */}
-        {/* <TickerLogos title="Our Official Partners" color="bg-yellow" logos={ logos2 } /> */}
-        {/* <Process /> */}
-        {/* <Solutions /> */}
+        <TickerLogos title="Proudly Powering the Sites You Love" color="bg-gray" logos={ logos } />
+        <Customers />
+        <TickerLogos title="Our Official Partners" color="bg-yellow" logos={ logos2 } />
+        <Process />
+        <Solutions />
       </main>
     </>
   )

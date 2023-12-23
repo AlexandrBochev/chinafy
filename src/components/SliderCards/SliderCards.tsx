@@ -17,7 +17,7 @@ const SliderCards = ({ children }: SliderCardsProps) => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
-    variableHeight: true,
+    touchThreshold: 50,
   }
 
   return (
