@@ -20,6 +20,10 @@ import customer1 from '../assets/customers/customer-1.jpg'
 import customer2 from '../assets/customers/customer-2.jpg'
 import customer3 from '../assets/customers/customer-3.jpg'
 import customer4 from '../assets/customers/customer-4.jpg'
+import solutions1 from '../assets/solutions/solutions-1.svg'
+import solutions2 from '../assets/solutions/solutions-2.svg'
+import solutions3 from '../assets/solutions/solutions-3.svg'
+import solutions4 from '../assets/solutions/solutions-4.svg'
 
 // Types
 export interface ButtonProps {
@@ -251,6 +255,41 @@ export const menu = [
   { id:5, name: "Process" },
   { id:6, name: "Solutions" },
   { id:7, name: "Plans" },
+]
+
+export const solutions = [
+  {
+    id: 1,
+    title: "Paid Advertising",
+    description: "Strategise cross-channel, advertising campaigns for China with experts who’ve worked with Citibank, Huawei, and more.",
+    icon: solutions4,
+    rotate: "rotate-[-12.3deg]",
+    translateY: "translate-y-[-15%]"
+  },
+  {
+    id: 2,
+    title: "WeChat Marketing",
+    description: "Work with award-winning digital agencies to launch WeChat Mini-programs & manage your Social Media presence.",
+    icon: solutions3,
+    rotate: "rotate-[0deg]",
+    translateY: "translate-y-[-15%]"
+  },
+  {
+    id: 3,
+    title: "Hosting in China",
+    description: "Compliment your existing website stack with a hosted onshore equivalent.",
+    icon: solutions2,
+    rotate: "rotate-[7.75deg]",
+    translateY: "translate-y-[-15%]"
+  },
+  {
+    id: 4,
+    title: "ICP Licence",
+    description: "Navigate the complex ICP license process with Chinafy and Alibaba Cloud.",
+    icon: solutions1,
+    rotate: "rotate-[-6deg]",
+    translateY: "translate-y-[-100%]"
+  },
 ]
 
 // Functions
