@@ -8,7 +8,7 @@ import { LoadingSpeedCardProps, cardColors, motionSettings } from '../../models/
 
 const LoadingSpeedCard = ({ title, seconds, color, left }: LoadingSpeedCardProps) => {
   return (
-    <div className="bg-white rounded-[1.25rem] p-[1.875rem]">
+    <div className="bg-white rounded-[1.25rem] p-5 sm:p-[1.875rem] pb-12 lg:pb-[1.875rem]">
       <div className="w-full flex items-center justify-between mb-[2.5rem]">
         <p className="h-[2.875rem] text-center bg-yellow rounded-full px-[1.375rem] py-[0.875rem] mr-[0.625rem]">
           { title }
@@ -25,7 +25,7 @@ const LoadingSpeedCard = ({ title, seconds, color, left }: LoadingSpeedCardProps
       <m.div
         { ...motionSettings }
         transition={{ delay: seconds * 0.1, duration: 0.2 }}
-        className={`bg-background text-[0.625rem] rounded-[1.25rem] p-5 pb-0 ${ left ? 'mr-[2.375rem]' : 'ml-[2.375rem]' }`}>
+        className={`bg-background text-[0.625rem] rounded-[1.25rem] p-5 pb-0 overflow-hidden ${ left ? 'lg:mr-[2.375rem]' : 'lg:ml-[2.375rem]' }`}>
         <div className="flex items-center justify-between mb-[1.375rem]">
           <m.div
             { ...motionSettings }
@@ -57,11 +57,11 @@ const LoadingSpeedCard = ({ title, seconds, color, left }: LoadingSpeedCardProps
           <p>Hi! Type here</p>
           <img src={ pencil } alt="Pencil" />
         </m.div>
-        <div className='w-full flex items-center justify-between mb-3'>
+        <div className='relative w-full h-[6.5rem] flex items-center justify-between mb-3'>
           <m.div
             { ...motionSettings }
             transition={{ delay: seconds * 0.6, duration: 0.2 }}
-            className='flex p-[0.9375rem] pr-6 rounded-[0.625rem] bg-lilac'
+            className='absolute top-0 left-0 sm:static flex sm:w-full min-w-[15rem] h-full p-[0.9375rem] pr-6 rounded-[0.625rem] bg-lilac mr-3'
           >
             <m.img
               { ...motionSettings }
@@ -70,7 +70,7 @@ const LoadingSpeedCard = ({ title, seconds, color, left }: LoadingSpeedCardProps
             />
             <img src={ graphic } alt="Graphic" />
           </m.div>
-          <div className='flex p-[0.625rem] rounded-[0.625rem] bg-white'>
+          <div className='absolute top-0 left-[16rem] sm:static min-w-[7.75rem] h-[6.5rem] p-[0.625rem] rounded-[0.625rem] bg-white'>
             <m.img
               { ...motionSettings }
               transition={{ delay: seconds * 0.8, duration: 0.2 }}

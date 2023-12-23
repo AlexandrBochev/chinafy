@@ -18,7 +18,7 @@ const App = () => {
       <main className="w-full">
         <Intro />
         <CrossBorderBlock />
-        {/* <LoadingSpeed /> */}
+        <LoadingSpeed />
         {/* <Ticker>
           <TickerWords />
         </Ticker> */}
