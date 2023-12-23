@@ -170,6 +170,34 @@ export const customers = [
     comment: "The process was super easy and I'm really glad we selected your team. The experience has been beyond my expectations.",
     photo: customer4
   },
+  {
+    id: 5,
+    name: 'Michela Nalin',
+    position: 'Marketing Manager for Nolato',
+    comment: 'Chinafy has made it possible for us to be sure that our web visitors in China have the same good experience as all our other visitors in the rest of the world.',
+    photo: customer1
+  },
+  {
+    id: 6,
+    name: 'Natasha Baker',
+    position: 'CEO & Founder of SnapEDA',
+    comment: "Over 1 million engineers use SnapEDA each year all over the world. We were attracted to Chinafy's service because of how easy they made it to support the Chinese market.",
+    photo: customer2
+  },
+  {
+    id: 7,
+    name: 'Ignacio Cerro',
+    position: 'CFO, Global Alumni for MIT Professional Education',
+    comment: 'We are very happy with working with Chinafy. They went above and beyond to ensure we help MIT Professional Education deliver world-class online education in China.',
+    photo: customer3
+  },
+  {
+    id: 8,
+    name: 'Nicolas Duchesne',
+    position: 'Product Marketing Manager',
+    comment: "The process was super easy and I'm really glad we selected your team. The experience has been beyond my expectations.",
+    photo: customer4
+  },
 ]
 
 export const process = [

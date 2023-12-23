@@ -4,10 +4,10 @@ const CustomerCard = (props: CustomerCardProps) => {
   const { name, position, comment, photo } = props
 
   return (
-    <div className="relative min-w-[18rem] h-[22.9375rem] group">
+    <div className="relative w-[16.875rem] md:w-[19.7rem] h-[35rem] md:h-[39rem] mx-3 group">
       <div
         className="
-          absolute top-0 left-0 flex justify-center w-full h-full rounded-[1.875rem] bg-[#F1F1F1] overflow-hidden
+          absolute top-12 md:top-14 left-0 flex justify-center w-full h-[19.7rem] md:h-[22.875rem] rounded-[1.875rem] bg-[#F1F1F1] overflow-hidden
           group-hover:rotate-[-5deg] group-hover:-translate-y-3 transition-all
         "
       >
@@ -16,9 +16,9 @@ const CustomerCard = (props: CustomerCardProps) => {
 
       <div
         className="
-          absolute top-0 left-0 flex flex-col items-start justify-between w-full h-full
+          absolute top-12 md:top-14 left-0 flex flex-col items-start justify-between w-full h-[19.7rem] md:h-[22.875rem] 
           rounded-[1.875rem] bg-gray text-left p-[1.875rem]
-          group-hover:bg-lilac group-hover:rotate-[5deg] group-hover:translate-y-[7.625rem] group-hover:z-50 group-hover:shadow-md transition-all
+          group-hover:bg-lilac group-hover:rotate-[5deg] group-hover:translate-y-[7.3rem] group-hover:z-50 group-hover:shadow-md transition-all
         "
       >
         <div>
