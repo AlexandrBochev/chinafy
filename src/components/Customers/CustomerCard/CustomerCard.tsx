@@ -11,7 +11,7 @@ const CustomerCard = (props: CustomerCardProps) => {
           group-hover:rotate-[-5deg] group-hover:-translate-y-3 transition-all
         "
       >
-        <img src={ photo } alt={ name } className="object-cover" />
+        <img src={ photo } alt={ name } className="object-cover -mt-2" />
       </div>
 
       <div

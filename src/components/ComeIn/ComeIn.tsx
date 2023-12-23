@@ -94,9 +94,7 @@ const ComeIn = () => {
       </div>
 
       <div className="flex justify-center mx-auto">
-        <Button square color='bg-black text-white'>Get Started</Button>
-        <span className='w-5' />
-        <Button square>Get Started</Button>
+        <Button black>Get Started</Button>
       </div>
     </section>
   )

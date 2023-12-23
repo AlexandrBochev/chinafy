@@ -16,15 +16,17 @@ import process1 from '../assets/process-icons/process-1.svg'
 import process2 from '../assets/process-icons/process-2.svg'
 import process3 from '../assets/process-icons/process-3.svg'
 import process4 from '../assets/process-icons/process-4.svg'
-import customer1 from '../assets/customers/customer-1.png'
+import customer1 from '../assets/customers/customer-1.jpg'
+import customer2 from '../assets/customers/customer-2.jpg'
+import customer3 from '../assets/customers/customer-3.jpg'
+import customer4 from '../assets/customers/customer-4.jpg'
 
 // Types
 export interface ButtonProps {
   children: ReactElement | string
   onClick?: () => void
   ball?: boolean
-  square?: boolean
-  color?: 'bg-black text-white' | 'bg-yellow' | 'bg-lilac' | 'bg-green' | 'bg-white'
+  black?: boolean
 }
 
 export interface LoadingSpeedCardProps {
@@ -152,21 +154,21 @@ export const customers = [
     name: 'Natasha Baker',
     position: 'CEO & Founder of SnapEDA',
     comment: "Over 1 million engineers use SnapEDA each year all over the world. We were attracted to Chinafy's service because of how easy they made it to support the Chinese market.",
-    photo: customer1
+    photo: customer2
   },
   {
     id: 3,
     name: 'Ignacio Cerro',
     position: 'CFO, Global Alumni for MIT Professional Education',
     comment: 'We are very happy with working with Chinafy. They went above and beyond to ensure we help MIT Professional Education deliver world-class online education in China.',
-    photo: customer1
+    photo: customer3
   },
   {
     id: 4,
     name: 'Nicolas Duchesne',
     position: 'Product Marketing Manager',
     comment: "The process was super easy and I'm really glad we selected your team. The experience has been beyond my expectations.",
-    photo: customer1
+    photo: customer4
   },
 ]
 

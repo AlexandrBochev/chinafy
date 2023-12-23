@@ -20,23 +20,26 @@ const Intro = () => {
   }, [active])
 
   return (
-    <section className="container w-full h-[56.25rem] grid grid-cols-2 gap-4 p-[1.5625rem] pl-[3.375rem] mx-auto">
-      <div className="w-full h-full flex flex-col justify-end text-start">
-        <h1 className="leading-none mb-[2.125rem]">Make Your Site Work in China</h1>
-        <div className="max-w-[33.375rem] flex items-center justify-between mb-20">
-          <p className="max-w-[21.25rem] mr-4">Connecting the world's largest companies with the world's largest market.</p>
-          <Button square color={ 'bg-black text-white' }>Get Started</Button>
+    <section className="container xl:flex pt-36 xl:pt-6 mx-auto">
+      <div className="w-full flex flex-col xl:justify-end">
+        <div className="relative max-w-[34.25rem] mb-[2.125rem] mx-auto lg:text-left xl:mx-0">
+          <span className="absolute bottom-0 -right-1 h-10 w-32 lg:h-20 lg:w-[19.6rem] lg:right-8 bg-lilac rounded-xl -z-10" />
+          <span className="absolute bottom-0 -right-3 h-10 w-10 lg:h-20 lg:right-3 bg-yellow rounded-xl -z-20" />
+          <h1 className="leading-none text-[2.5rem] lg:text-[5rem]">Make Your Site<br />Work in China</h1>
         </div>
-        <div className="flex max-w-[35.625rem] items-end justify-between mb-5">
-          <div className="relative">
+        <div className="flex flex-col lg:flex-row lg:text-left items-center mb-16 lg:mb-20 mx-auto xl:mx-0">
+          <p className="">Connecting the world's largest companies<br />with the world's largest market.</p>
+          <span className="w-5 h-5" />
+          <Button black>Get Started</Button>
+        </div>
+        <div className="flex items-end mb-12 xl:mb-5 mx-auto xl:mx-0">
+          <div className="relative hidden md:block mr-6">
             <IntroBlock />
             <p className="absolute top-[2.75rem] right-[3.125rem] max-w-[11.25rem] text-[0.875rem] opacity-50">
               Watch, and compare your site load in the US vs China.
             </p>
-            <div className="absolute top-[2.125rem] right-[0.5rem]">
-              <Button ball color={ 'bg-white' }>
-                <span className="rotate-45"><ArrowSm /></span>
-              </Button>
+            <div className="absolute top-[2.125rem] right-[0.5rem] flex items-center justify-center w-9 h-9 bg-white rounded-full">
+              <span className="rotate-45"><ArrowSm /></span>
             </div>
             <a href="/" className="absolute left-[1.5625rem] bottom-[1.125rem] flex items-center">
               <p className="peer">Visual Perfomance Test</p>
@@ -45,28 +48,48 @@ const Intro = () => {
               </span>
             </a>
           </div>
-          <div className="relative">
+
+          <div className="relative hidden md:block">
             <IntroBlockSm />
             <img src={ usersIcons } alt="Users Icons" className="absolute left-2 top-2" />
-            <div className="absolute top-0 -right-2">
-              <Button ball color={ 'bg-yellow' }><ArrowSm /></Button>
+            <div className="absolute top-0 -right-2 flex items-center justify-center w-9 h-9 bg-yellow rounded-full">
+              <ArrowSm />
             </div>
-            <div className="absolute left-[0.625rem] bottom-[0.625rem] text-[1.5625rem]">
+            <div className="absolute left-[0.625rem] bottom-[0.625rem] text-left text-[1.5625rem]">
               <p>3K+</p>
               <p className="text-xs mt-3">Globally Powered Websitesp</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="relative w-full h-full min-w-0 flex items-end justify-end rounded-[1.25rem] bg-lilac overflow-hidden p-[1.5625rem]">
-        <div className="absolute left-[1.5625rem] top-5 flex w-[5.125rem] items-center justify-between z-10">
-          <Button ball color={ 'bg-white' }><img src={ twoCircles } alt="Two Circles" width={20} height={20} /></Button>
-          <Button ball color={ 'bg-white' }><img src={ earth } alt="Earth" width={20} height={20} /></Button>
+      <div className="relative h-[26rem] xl:h-[53.125rem] xl:w-full xl:ml-6 flex flex-col items-end justify-between rounded-[1.25rem] bg-lilac overflow-hidden p-3 md:p-[1.5625rem]">
+        <div className="w-full flex items-start justify-between">
+
+          <div className="relative md:hidden z-10">
+            <IntroBlockSm />
+            <img src={ usersIcons } alt="Users Icons" className="absolute left-2 top-2" />
+            <div className="absolute top-0 -right-2 flex items-center justify-center w-9 h-9 bg-yellow rounded-full">
+              <ArrowSm />
+            </div>
+            <div className="absolute left-[0.625rem] bottom-[0.625rem] text-left text-[1.5625rem]">
+              <p>3K+</p>
+              <p className="text-xs mt-3">Globally Powered Websitesp</p>
+            </div>
+          </div>
+
+          <div className="flex z-10">
+            <div className="p-1 w-6 h-6 md:w-10 md:h-10 md:p-2 mr-1 md:mr-3 bg-white rounded-full">
+              <img src={ twoCircles } alt="Two Circles" />
+            </div>
+            <div className="p-1 w-6 h-6 md:w-10 md:h-10 md:p-[0.5625rem] bg-white rounded-full">
+              <img src={ earth } alt="Earth" />
+            </div>
+          </div>
         </div>
         <div className="flex z-10">
-          <div className="flex flex-col items-end mr-3">
+          <div className="flex flex-col items-end justify-center mr-3">
             <img src={ plus } alt="Plus" width={30} height={30} />
-            <p className="text-left text-white mt-2 mr-4">Explore our<br />latest projects</p>
+            <p className="hidden sm:block text-left text-white mt-2 mr-4">Explore our<br />latest projects</p>
           </div>
           <ul className="flex w-[12.62rem] h-[4.75rem] items-center justify-between bg-white rounded-full px-3">
             { slides.map(slide =>
@@ -84,20 +107,20 @@ const Intro = () => {
               )}
           </ul>
         </div>
-        <div>
-            { slides.map(slide =>
-              <div key={ slide.id }>
-                <img
-                  src={ slide.img }
-                  alt="Slide"
-                  className={`
-                    absolute top-0 left-0 w-full h-full object-cover transition-all duration-700
-                    ${ active === slide.id ? 'opacity-100' : 'opacity-0' }
-                  `}
-                />
-              </div>
-            )}
-          </div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          { slides.map(slide =>
+            <div key={ slide.id }>
+              <img
+                src={ slide.img }
+                alt="Slide"
+                className={`
+                absolute top-0 left-0 w-full h-full object-cover transition-all duration-700
+                  ${ active === slide.id ? 'opacity-100' : 'opacity-0' }
+                `}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )
