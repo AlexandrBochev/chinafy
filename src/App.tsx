@@ -5,6 +5,7 @@ import { Header } from "./components/Header/Header"
 import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
 import { Process } from "./components/Process/Process"
+import SliderCards from "./components/SliderCards/SliderCards"
 import { Solutions } from "./components/Solutions/Solutions"
 import { Ticker } from "./components/Ticker/Ticker"
 import { TickerLogos } from "./components/TickerLogos/TickerLogos"
@@ -19,12 +20,11 @@ const App = () => {
         <Intro />
         <CrossBorderBlock />
         <LoadingSpeed />
-        {/* <Ticker>
+        <Ticker>
           <TickerWords />
-        </Ticker> */}
-        {/* <div className="overflow-hidden">
-          <ComeIn />
-        </div> */}
+        </Ticker>
+        <ComeIn />
+
         {/* <TickerLogos title="Proudly Powering the Sites You Love" color="bg-gray" logos={ logos } /> */}
         {/* <Customers /> */}
         {/* <TickerLogos title="Our Official Partners" color="bg-yellow" logos={ logos2 } /> */}
