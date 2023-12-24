@@ -30,7 +30,7 @@ import plansBg3 from '../assets/plans/bg-3.jpg'
 
 // Types
 export interface ButtonProps {
-  children: ReactElement | string
+  children: React.ReactNode
   onClick?: () => void
   ball?: boolean
   black?: boolean

@@ -1,4 +1,5 @@
 import { ComeIn } from "./components/ComeIn/ComeIn"
+import { Contact } from "./components/Contact/Contact"
 import { CrossBorderBlock } from "./components/CrossBorderBlock/CrossBorderBlock"
 import { Customers } from "./components/Customers/Customers"
 import { Header } from "./components/Header/Header"
@@ -28,6 +29,7 @@ const App = () => {
         <TickerLogos title="Our Official Partners" color="bg-yellow" logos={ logos2 } />
         <Process />
         <Plans />
+        <Contact />
       </main>
     </>
   )

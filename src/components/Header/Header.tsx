@@ -3,6 +3,7 @@ import { BurgerMenu } from "../BurgerMenu/BurgerMenu"
 import { Button } from "../Button/Button"
 import { BurgerIcon } from "../icons/BurgerIcon"
 import { Logo } from "../icons/Logo"
+import { smoothScroll } from "../../models/models"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,7 +20,7 @@ const Header = () => {
           <div className="hidden md:block"><Button onClick={ handleClick }>Menu</Button></div>
           <div className="md:hidden"><Button onClick={ handleClick } ball><BurgerIcon /></Button></div>
           <span className="w-[0.625rem]" />
-          <div className="hidden md:block"><Button>Contact</Button></div>
+          <a href="#Contact" className="hidden md:block" onClick={ (e) => smoothScroll(e, "Contact") }><Button>Contact</Button></a>
         </div>
       </div>
       <BurgerMenu isMenuOpen={ isMenuOpen } onClick={ handleClick } />

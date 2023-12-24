@@ -7,7 +7,7 @@ const PlansCard = (props: PlansCardProps) => {
   return (
     <div
       className="
-        relative flex flex-col items-center justify-between w-[21.875rem] md:w-[26.875rem] h-[26.875rem] rounded-[1.875rem] py-[1.875rem] px-[1rem] xl:px-[1.875rem] group cursor-pointer overflow-hidden mx-3
+        relative flex flex-col items-center justify-between w-[21.875rem] md:w-[26.875rem] h-[26.875rem] rounded-[1.875rem] py-[1.875rem] px-[1rem] md:px-[1.875rem] group cursor-pointer overflow-hidden mx-3
       "
     >
       <img
@@ -22,9 +22,9 @@ const PlansCard = (props: PlansCardProps) => {
       <h4 className="text-[2.625rem] font-medium">{ title }</h4>
       <p className="text-[1.125rem]">{ description }</p>
       <div className="flex w-full items-center justify-between group">
-        <div className="flex items-center justify-between h-16 rounded-full text-[2rem] font-medium px-6 bg-white group-hover:bg-black group-hover:text-white">
+        <div className="flex items-center justify-between h-16 rounded-full text-[1.875rem] md:text-[2rem] font-medium px-6 bg-white group-hover:bg-black group-hover:text-white">
           { isAnnual ? annual : monthly }
-          <span className="text-sm font-normal ml-4">/ Initial Set-Up</span>
+          <span className="text-sm font-normal whitespace-nowrap ml-3">/ Initial Set-Up</span>
         </div>
         <div className="flex items-center h-16 w-16 rounded-full text-[2rem] font-medium px-6 bg-white group-hover:bg-black group-hover:text-white">
           <PlansArrow />

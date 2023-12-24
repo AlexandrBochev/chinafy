@@ -16,7 +16,7 @@ const BurgerMenu = ({ isMenuOpen, onClick }: BurgerMenuProps) => {
       />
       <div
         className={`
-        fixed top-0 left-0 w-full h-screen md:w-[39rem] bg-white pt-6 pb-14 md:py-[2.5rem] px-[1.25rem] md:px-[3.125rem] z-40 transition-all duration-700
+        fixed top-0 left-0 w-full h-screen md:w-[39rem] bg-white pt-6 pb-16 md:py-[2.5rem] px-[1.25rem] md:px-[3.125rem] z-40 transition-all duration-700
           ${ isMenuOpen ? "translate-x-0 md:rounded-r-[3.75rem]" : "translate-x-[-110%] rounded-r-[3.75rem]" }
         `}
       >
@@ -42,7 +42,7 @@ const BurgerMenu = ({ isMenuOpen, onClick }: BurgerMenuProps) => {
               </a>
             )}
           </ul>
-          <a href="#Contact" className="mx-auto md:mx-0"><Button onClick={ onClick }>Contact</Button></a>
+          <a href="#Contact" className="mx-auto md:mx-0" onClick={ (e) => smoothScroll(e, "Contact") }><Button onClick={ onClick }>Contact</Button></a>
         </div>
       </div>
     </>
