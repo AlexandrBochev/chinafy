@@ -35,8 +35,8 @@ const ComeIn = () => {
       </div>
 
       {/* Slider */}
-      <div className="w-[132.5rem] lg:w-[151.5rem] mb-[2.5rem] md:mb-[3.125rem] mx-auto">
-        <SliderCards>
+      <div className="w-[88.5rem] lg:w-[101rem] mb-[2.5rem] md:mb-[3.125rem] mx-auto">
+        <SliderCards amount={ 4 }>
           <div className="h-[27.25rem] lg:h-[30rem] px-3">
             <ComeInCard background={ comeInCardBg1 }>
               <div className="w-full h-full flex flex-col justify-between">

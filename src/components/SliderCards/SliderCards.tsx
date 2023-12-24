@@ -4,14 +4,15 @@ import Slider from 'react-slick'
 
 interface SliderCardsProps {
   children: React.ReactNode
+  amount: number
 }
 
-const SliderCards = ({ children }: SliderCardsProps) => {
+const SliderCards = ({ children, amount }: SliderCardsProps) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: amount,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,

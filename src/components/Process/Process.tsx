@@ -10,11 +10,11 @@ const Process = () => {
   return (
     <section className="pb-14 md:pb-20 overflow-x-hidden" id="Process">
       <h3 className="container text-[1.875rem] md:text-[3.5rem] mb-[3.125rem] mx-auto">What's The Chinafy Process?</h3>
-      <div className="w-[110rem] md:w-[127rem] mb-20 md:mb-32 mx-auto">
-        <SliderCards>
-          { process.map(item =>
+      <div className="w-[72rem] md:w-[84rem] mb-20 md:mb-32 mx-auto">
+        <SliderCards amount={ 4 }>
+          { process.map((item, index) =>
             <m.div
-              key={ item.id }
+              key={ index }
             >
               <ProcessCard { ...item } />
             </m.div>

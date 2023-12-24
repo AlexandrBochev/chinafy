@@ -4,6 +4,7 @@ import { Customers } from "./components/Customers/Customers"
 import { Header } from "./components/Header/Header"
 import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
+import { Plans } from "./components/Plans/Plans"
 import { Process } from "./components/Process/Process"
 import { Ticker } from "./components/Ticker/Ticker"
 import { TickerLogos } from "./components/TickerLogos/TickerLogos"
@@ -26,6 +27,7 @@ const App = () => {
         <Customers />
         <TickerLogos title="Our Official Partners" color="bg-yellow" logos={ logos2 } />
         <Process />
+        <Plans />
       </main>
     </>
   )

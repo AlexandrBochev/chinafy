@@ -24,6 +24,9 @@ import solutions1 from '../assets/solutions/solutions-1.svg'
 import solutions2 from '../assets/solutions/solutions-2.svg'
 import solutions3 from '../assets/solutions/solutions-3.svg'
 import solutions4 from '../assets/solutions/solutions-4.svg'
+import plansBg1 from '../assets/plans/bg-1.jpg'
+import plansBg2 from '../assets/plans/bg-2.jpg'
+import plansBg3 from '../assets/plans/bg-3.jpg'
 
 // Types
 export interface ButtonProps {
@@ -63,6 +66,16 @@ export interface TickerLogosProps {
 export interface BurgerMenuProps {
   isMenuOpen: boolean
   onClick: () => void
+}
+
+export interface PlansCardProps {
+  id: number
+  title: string
+  description: string
+  background: string
+  annual: string
+  monthly: string
+  isAnnual?: boolean
 }
 
 // Constants
@@ -226,22 +239,22 @@ export const process = [
     icon: process4
   },
   {
-    id: 5,
+    id: 1,
     description: "Submit your site",
     icon: process1
   },
   {
-    id: 6,
+    id: 2,
     description: "We'll scan your site to create a Chinafy version, and generate your plan.",
     icon: process2
   },
   {
-    id: 7,
+    id: 3,
     description: "Once you subscribe, our engineers then set-up and test the Chinafy version of your website.",
     icon: process3
   },
   {
-    id: 8,
+    id: 4,
     description: "Launch your Chinafy site with a quick 15 minute DNS update.",
     icon: process4
   },
@@ -289,6 +302,57 @@ export const solutions = [
     icon: solutions1,
     rotate: "rotate-[-6deg]",
     translateY: "translate-y-[-100%]"
+  },
+]
+
+export const plansItems = [
+  {
+    id: 1,
+    title: "Starter",
+    description: "Best for Squarespace or Shopify template-based websites with 10 or fewer pages.",
+    background: plansBg1,
+    annual: "$3500",
+    monthly: "$350",
+  },
+  {
+    id: 2,
+    title: "Pro+",
+    description: "For more robust websites: custom sites, sites requiring login or live streaming, or Shopify Plus.",
+    background: plansBg2,
+    annual: "$5500",
+    monthly: "$550",
+  },
+  {
+    id: 3,
+    title: "Enterprise",
+    description: "For your brand or organization, with change management and 99.99% uptime.",
+    background: plansBg3,
+    annual: "Enquire",
+    monthly: "Enquire",
+  },
+  {
+    id: 4,
+    title: "Starter",
+    description: "Best for Squarespace or Shopify template-based websites with 10 or fewer pages.",
+    background: plansBg1,
+    annual: "$3500",
+    monthly: "$350",
+  },
+  {
+    id: 5,
+    title: "Pro+",
+    description: "For more robust websites: custom sites, sites requiring login or live streaming, or Shopify Plus.",
+    background: plansBg2,
+    annual: "$5500",
+    monthly: "$550",
+  },
+  {
+    id: 6,
+    title: "Enterprise",
+    description: "For your brand or organization, with change management and 99.99% uptime.",
+    background: plansBg3,
+    annual: "Enquire",
+    monthly: "Enquire",
   },
 ]
 

@@ -17,8 +17,8 @@ const Customers = () => {
       <div className="max-w-[14rem] md:max-w-md mx-auto">
         <h3 className="text-[1.875rem] md:text-[3.5rem]">Don't just take our word</h3>
       </div>
-      <div className="w-[110rem] md:w-[127rem] mx-auto">
-        <SliderCards>
+      <div className="w-[72rem] md:w-[84rem] mx-auto">
+        <SliderCards amount={ 4 }>
           { customers.map(customer =>
             <CustomerCard key={ customer.id } { ...customer } />
           )}
