@@ -5,7 +5,7 @@ import { Input } from './Input/Input'
 
 const Contact = () => {
   return (
-    <section className="relative pt-[3.125rem] pb-[5.625rem] md:pt-[6.25rem]" id='Contact'>
+    <section className="relative pt-[3.125rem] pb-[10.625rem] md:pt-[6.25rem]" id='Contact'>
       <img src={ background } alt="Background" className="absolute top-0 left-0 w-full h-full object-cover -z-30" />
       <div className="relative container mx-auto">
 

@@ -27,6 +27,7 @@ import solutions4 from '../assets/solutions/solutions-4.svg'
 import plansBg1 from '../assets/plans/bg-1.jpg'
 import plansBg2 from '../assets/plans/bg-2.jpg'
 import plansBg3 from '../assets/plans/bg-3.jpg'
+import { color } from 'framer-motion'
 
 // Types
 export interface ButtonProps {
@@ -354,6 +355,20 @@ export const plansItems = [
     annual: "Enquire",
     monthly: "Enquire",
   },
+]
+
+export const footerButtons = [
+  {id: 1, name: 'RESOURCES', color: 'bg-yellow'},
+  {id: 2, name: 'PRICING', color: 'bg-white'},
+  {id: 3, name: 'PARTNERS', color: 'bg-white'},
+  {id: 4, name: 'SOLUTIONS', color: 'bg-yellow'},
+  {id: 5, name: 'FEATURES', color: 'bg-white'},
+  {id: 6, name: 'TRUST', color: 'bg-white'},
+  {id: 7, name: 'SUPPORT', color: 'bg-yellow'},
+  {id: 8, name: 'OTHER SERVICES', color: 'bg-yellow'},
+  {id: 9, name: 'TECHNOLOGIES', color: 'bg-white'},
+  {id: 10, name: 'LEGAL', color: 'bg-white'},
+  {id: 11, name: 'TOOLS', color: 'bg-yellow'},
 ]
 
 // Functions

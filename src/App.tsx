@@ -2,6 +2,7 @@ import { ComeIn } from "./components/ComeIn/ComeIn"
 import { Contact } from "./components/Contact/Contact"
 import { CrossBorderBlock } from "./components/CrossBorderBlock/CrossBorderBlock"
 import { Customers } from "./components/Customers/Customers"
+import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
 import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
@@ -30,6 +31,7 @@ const App = () => {
         <Process />
         <Plans />
         <Contact />
+        <Footer />
       </main>
     </>
   )
