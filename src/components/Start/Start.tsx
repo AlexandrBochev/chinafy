@@ -2,7 +2,7 @@ import { motion as m } from 'framer-motion'
 
 const Start = () => {
   return (
-    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-30">
+    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center pointer-events-none z-30">
       <m.div
         animate={{ opacity: [1, 1, 1, 0, 0] }}
         transition={{ duration: 6 }}
