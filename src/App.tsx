@@ -8,6 +8,7 @@ import { Intro } from "./components/Intro/Intro"
 import { LoadingSpeed } from "./components/LoadingSpeed/LoadingSpeed"
 import { Plans } from "./components/Plans/Plans"
 import { Process } from "./components/Process/Process"
+import { Start } from "./components/Start/Start"
 import { Ticker } from "./components/Ticker/Ticker"
 import { TickerLogos } from "./components/TickerLogos/TickerLogos"
 import { TickerWords } from "./components/TickerWords/TickerWords"
@@ -18,6 +19,7 @@ const App = () => {
     <>
       <Header />
       <main className="w-full">
+        <Start />
         <Intro />
         <CrossBorderBlock />
         <LoadingSpeed />
@@ -31,8 +33,8 @@ const App = () => {
         <Process />
         <Plans />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </>
   )
 }

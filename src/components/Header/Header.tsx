@@ -4,6 +4,7 @@ import { Button } from "../Button/Button"
 import { BurgerIcon } from "../icons/BurgerIcon"
 import { Logo } from "../icons/Logo"
 import { smoothScroll } from "../../models/models"
+import { motion as m } from 'framer-motion'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,7 +14,12 @@ const Header = () => {
   }
 
   return (
-    <header className="w-full absolute top-0 left-0 pt-6 md:pt-10" id="Home">
+    <m.header
+      initial={{ color: 'white' }}
+      animate={{ color: 'black' }}
+      transition={{ delay: 3 }}
+      className="w-full absolute top-0 left-0 pt-6 md:pt-10 text-white z-40" id="Home"
+    >
       <div className="container flex items-center justify-between mx-auto">
         <a href="/" className="md:order-2 md:absolute md:right-[51.74%]"><Logo /></a>
         <div className="flex">
@@ -24,7 +30,7 @@ const Header = () => {
         </div>
       </div>
       <BurgerMenu isMenuOpen={ isMenuOpen } onClick={ handleClick } />
-    </header>
+    </m.header>
   )
 }
 
