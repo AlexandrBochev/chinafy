@@ -19,7 +19,7 @@ const App = () => {
     <>
       <Header />
       <main className="w-full">
-        <Start />
+        {/* <Start /> */}
         <Intro />
         <CrossBorderBlock />
         <LoadingSpeed />

@@ -8,7 +8,7 @@ const ProcessCard = (props: ProcessCardProps) => {
   const { id, description, icon } = props
 
   return (
-    <div className="flex flex-col items-center justify-between w-[16.875rem] md:w-[19.7rem] h-[19.7rem] md:h-[22.875rem] mx-3 rounded-[1.875rem] bg-[#F1F1F1] p-[1.875rem] md:p-10">
+    <div className="top-20 flex flex-col items-center justify-between w-[16.875rem] md:w-[19.7rem] h-[19.7rem] md:h-[22.875rem] rounded-[1.875rem] mx-auto bg-[#F1F1F1] shadow-md p-[1.875rem] md:p-10">
       <div className="w-full">
         <div className="flex items-center justify-center bg-white h-[4.75rem] md:h-[6.25rem] rounded-[1.25rem] mb-6">
           <img src={ icon } alt="Icon" className="h-[3.875rem] md:h-auto" />

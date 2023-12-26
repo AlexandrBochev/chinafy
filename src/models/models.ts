@@ -239,26 +239,26 @@ export const process = [
     description: "Launch your Chinafy site with a quick 15 minute DNS update.",
     icon: process4
   },
-  {
-    id: 1,
-    description: "Submit your site",
-    icon: process1
-  },
-  {
-    id: 2,
-    description: "We'll scan your site to create a Chinafy version, and generate your plan.",
-    icon: process2
-  },
-  {
-    id: 3,
-    description: "Once you subscribe, our engineers then set-up and test the Chinafy version of your website.",
-    icon: process3
-  },
-  {
-    id: 4,
-    description: "Launch your Chinafy site with a quick 15 minute DNS update.",
-    icon: process4
-  },
+  // {
+  //   id: 1,
+  //   description: "Submit your site",
+  //   icon: process1
+  // },
+  // {
+  //   id: 2,
+  //   description: "We'll scan your site to create a Chinafy version, and generate your plan.",
+  //   icon: process2
+  // },
+  // {
+  //   id: 3,
+  //   description: "Once you subscribe, our engineers then set-up and test the Chinafy version of your website.",
+  //   icon: process3
+  // },
+  // {
+  //   id: 4,
+  //   description: "Launch your Chinafy site with a quick 15 minute DNS update.",
+  //   icon: process4
+  // },
 ]
 
 export const menu = [
