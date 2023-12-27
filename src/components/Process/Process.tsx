@@ -10,21 +10,25 @@ const Process = () => {
     target: ref,
   })
 
-  const rotateProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [360, 360, 0, 0])
-  const scaleProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 1, 1])
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 1, 1])
-  const translateX1 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, -510])
-  const translateX2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, -170])
-  const translateX3 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, 170])
-  const translateX4 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, 510])
+  const rotateProgress = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [360, 360, 360, 360, 180, 0, 0])
+  const scaleProgress = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 1, 1])
+  const opacityProgress = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 1, 1])
+  const translateX1 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 0, -510])
+  const translateX2 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 0, -170])
+  const translateX3 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 0, 170])
+  const translateX4 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 0, 510])
 
-  const scaleProgress2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 1, 0, 0])
-  const opacityProgress2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 1, 0, 0])
-  const translateY = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [-800, 0, 800, 800])
+  const scaleProgress2 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [1, 1, 1, 1, 1, 0, 0])
+  const opacityProgress2 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [1, 1, 1, 1, 1, 0, 0])
+  const translateY = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [0, 0, 0, 0, 0, 400, 800])
+  const translateY1 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [-800, -800, -800, -800, 0, 800, 800])
+  const translateY2 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [-800, -800, -800, 0, 0, 800, 800])
+  const translateY3 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [-800, -800, 0, 0, 0, 800, 800])
+  const translateY4 = useTransform(scrollYProgress, [0, 0.1666, 0.3333, 0.5, 0.6666, 0.8333, 1], [-800, 0, 0, 0, 0, 800, 800])
 
   return (
-    <m.section className="relative h-[200vh]" id="Process">
-      <h3 className="container text-[1.875rem] md:text-[3.5rem] mb-[3.125rem] mx-auto">What's The Chinafy Process?</h3>
+    <m.section className="relative h-[200vh] pt-32" id="Process">
+      <h3 className="container text-[1.875rem] md:text-[3.5rem] -mb-40 mx-auto">What's The Chinafy Process?</h3>
 
       <div  className="sticky top-0 h-[100vh] overflow-hidden">
         <m.div
@@ -93,9 +97,38 @@ const Process = () => {
             y: translateY,
           }}
         >
-          { solutions.map(solution =>
-            <SolutionsCard key={ solution.id } { ...solution } />
-          )}
+          <m.div
+            className="absolute left-0 top-0 w-full h-full flex items-end justify-center"
+            style={{
+              y: translateY4,
+            }}
+          >
+            <SolutionsCard { ...solutions[0] } />
+          </m.div>
+          <m.div
+            className="absolute left-0 top-0 w-full h-full flex items-end justify-center"
+            style={{
+              y: translateY3,
+            }}
+          >
+            <SolutionsCard { ...solutions[1] } />
+          </m.div>
+          <m.div
+            className="absolute left-0 top-0 w-full h-full flex items-end justify-center"
+            style={{
+              y: translateY2,
+            }}
+          >
+            <SolutionsCard { ...solutions[2] } />
+          </m.div>
+          <m.div
+            className="absolute left-0 top-0 w-full h-full flex items-end justify-center"
+            style={{
+              y: translateY1,
+            }}
+          >
+            <SolutionsCard { ...solutions[3] } />
+          </m.div>
         </m.div>
       </div>
 
