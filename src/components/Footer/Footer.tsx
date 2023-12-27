@@ -1,15 +1,45 @@
-import { useEffect } from 'react'
-import Matter from 'matter-js'
+import { useEffect, useState } from 'react'
 import twoCircles from '../../assets/two-circles.svg'
 import earth from '../../assets/earth.svg'
 import { Button } from '../Button/Button'
 import { footerButtons } from '../../models/models'
+import { BlocksFall } from '../BlocksFall/BlocksFall'
 
 const Footer = () => {
+  const [isActive, setIsActive] = useState(false);
+  const [isAnimated, setIsAnimated] = useState(false);
 
+  console.log(isActive)
+  console.log(isAnimated)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const component = document.getElementById('componentId'); // Замените 'yourComponentId' на ID вашего компонента
+      if (component) {
+        const topPosition = component.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (topPosition < windowHeight) {
+          setIsActive(true);
+          setIsAnimated(true);
+        } else {
+          setIsActive(false);
+          setIsAnimated(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-lilac rounded-t-[3.75rem] lg:rounded-t-[5rem] pt-[3.75rem] lg:pt-[5rem] -mt-[3.75rem] lg:-mt-[5rem] overflow-hidden">
+    <section
+      id="componentId"
+      className="relative w-full flex flex-col items-center bg-lilac rounded-t-[3.75rem] lg:rounded-t-[5rem] pt-[3.75rem] lg:pt-[5rem] -mt-[3.75rem] lg:-mt-[5rem] overflow-hidden"
+    >
 
       {/* Heading */}
       <div className="">
@@ -26,11 +56,15 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mb-[12rem] lg:mb-[18rem] rounded-[0.625rem] hover:border">
+      <div className="mb-[12rem] lg:mb-[18rem] rounded-[0.625rem] z-40 hover:border">
         <Button black>Get Started</Button>
       </div>
 
-      <div className="">
+      <div className="absolute top-0 container h-full" >
+        <BlocksFall active={isActive} anim={isAnimated} />
+      </div>
+
+      {/* <div className="">
         {footerButtons.map(button =>
           <div
             key={ button.id }
@@ -42,7 +76,7 @@ const Footer = () => {
             { button.name }
           </div>
         )}
-      </div>
+      </div> */}
 
       <div className="text-background font-medium text-[28vw] mb-8 md:mb-12">Chinafy</div>
     </section>

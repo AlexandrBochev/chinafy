@@ -2,30 +2,33 @@ import { ProcessCard } from "./ProcessCard/ProcessCard"
 import { process, solutions } from "../../models/models"
 import { motion as m, useScroll, useTransform } from "framer-motion"
 import { SolutionsCard } from "./SolutionsCard/SolutionsCard"
+import { useRef } from "react"
 
 const Process = () => {
+  const ref = useRef(null)
   const { scrollYProgress } = useScroll({
+    target: ref,
   })
 
-  const rotateProgress = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0, 0, 360, 360])
-  const scaleProgress = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [1, 1, 1, 0, 0])
-  const opacityProgress = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [1, 1, 1, 0, 0])
-  const scaleProgress2 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0, 0, 1, 1])
-  const opacityProgress2 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 0, 0, 1, 1])
+  const rotateProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [360, 360, 0, 0])
+  const scaleProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 1, 1])
+  const opacityProgress = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 1, 1])
+  const translateX1 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, -510])
+  const translateX2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, -170])
+  const translateX3 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, 170])
+  const translateX4 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 0, 0, 510])
 
-  const translateX1 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [-510, -510, 0, 0, 0])
-  const translateX2 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [-170, -170, 0, 0, 0])
-  const translateX3 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [170, 170, 0, 0, 0])
-  const translateX4 = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [510, 510, 0, 0, 0])
-  const translateY = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [800, 800, 800, 0, -800])
+  const scaleProgress2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 1, 0, 0])
+  const opacityProgress2 = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [1, 1, 0, 0])
+  const translateY = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [-800, 0, 800, 800])
 
   return (
-    <m.section className="relative h-[3000vh]" id="Process">
+    <m.section className="relative h-[200vh]" id="Process">
       <h3 className="container text-[1.875rem] md:text-[3.5rem] mb-[3.125rem] mx-auto">What's The Chinafy Process?</h3>
 
-      <div  className="sticky top-0 h-[50rem] overflow-hidden">
+      <div  className="sticky top-0 h-[100vh] overflow-hidden">
         <m.div
-          className="absolute w-full left-0 top-52"
+          className="absolute w-full h-full flex items-center left-0 top-0"
           style={{
             scale: scaleProgress,
             rotate: rotateProgress,
@@ -37,7 +40,7 @@ const Process = () => {
         </m.div>
 
         <m.div
-          className="absolute w-full left-0 top-52"
+          className="absolute w-full h-full flex items-center left-0 top-0"
           style={{
             scale: scaleProgress,
             rotate: rotateProgress,
@@ -49,7 +52,7 @@ const Process = () => {
         </m.div>
 
         <m.div
-          className="absolute w-full left-0 top-52"
+          className="absolute w-full h-full flex items-center left-0 top-0"
           style={{
             scale: scaleProgress,
             rotate: rotateProgress,
@@ -61,7 +64,7 @@ const Process = () => {
         </m.div>
 
         <m.div
-          className="absolute w-full left-0 top-52"
+          className="absolute w-full h-full flex items-center left-0 top-0"
           style={{
             scale: scaleProgress,
             rotate: rotateProgress,
@@ -95,6 +98,8 @@ const Process = () => {
           )}
         </m.div>
       </div>
+
+      <div ref={ ref } />
 {/* 
       <div className="sticky top-40 left-0 container h-[32rem] mx-auto" id="Solutions">
         <m.div

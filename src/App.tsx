@@ -1,3 +1,4 @@
+import { BlocksFall } from "./components/BlocksFall/BlocksFall"
 import { ComeIn } from "./components/ComeIn/ComeIn"
 import { Contact } from "./components/Contact/Contact"
 import { CrossBorderBlock } from "./components/CrossBorderBlock/CrossBorderBlock"
@@ -19,7 +20,7 @@ const App = () => {
     <>
       <Header />
       <main className="w-full">
-        {/* <Start /> */}
+        <Start />
         <Intro />
         <CrossBorderBlock />
         <LoadingSpeed />
