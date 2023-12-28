@@ -31,14 +31,6 @@ const Process = () => {
     <m.section className="relative h-[200vh] pt-32" id="Process">
       <h3 className="container text-[1.875rem] md:text-[3.5rem] -mb-40 mx-auto">What's The Chinafy Process?</h3>
 
-      {/* <div className="absolute w-[85.9rem] h-full left-0 top-0">
-        <SliderCards amount={ 4 }>
-          { process.map(item =>
-            <ProcessCard key={ item.id } { ...item } />
-          )}
-        </SliderCards>
-      </div> */}
-
       <div  className="sticky top-0 h-[100vh] overflow-hidden">
         <m.div
           className="absolute w-full h-full flex items-center left-0 top-0"
