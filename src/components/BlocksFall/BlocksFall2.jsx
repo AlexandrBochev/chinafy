@@ -20,10 +20,16 @@ import a from "../../assets/blocks/a.svg"
 import f from "../../assets/blocks/f.svg"
 import y from "../../assets/blocks/y.svg"
 
+
+// добавить ySize
+// добавить x - position
+
 const dataChinafy = [
   {
     imgLink: c,
     xSize: 276,
+    // ySize: 100,
+    // x: 0,
   },
   {
     imgLink: h,
@@ -75,7 +81,7 @@ const dataBlocks = [
   },
   {
     imgLink: block6,
-    xSize: 123,
+    xSize: 111,
   },
   {
     imgLink: block7,
@@ -91,7 +97,7 @@ const dataBlocks = [
   },
   {
     imgLink: block10,
-    xSize: 114,
+    xSize: 107,
   },
   {
     imgLink: block11,
@@ -99,12 +105,12 @@ const dataBlocks = [
   },
 ]
 
-const ChinafySpawn = (link, xSize, i, screenWidth, x, y) => {
+const chinafySpawn = (link, xSize, ySize, i, screenWidth, x, y) => {
   const sizeScale =
     screenWidth >= 1440
-      ? 0.7
+      ? 0.8
       : screenWidth >= 769
-      ? (screenWidth * 0.7) / 1440
+      ? (screenWidth * 0.8) / 1440
       : screenWidth >= 450
       ? (screenWidth * 1) / 650
       : screenWidth >= 320
@@ -115,10 +121,11 @@ const ChinafySpawn = (link, xSize, i, screenWidth, x, y) => {
     x,
     y,
     xSize * sizeScale,
-    80 * sizeScale,
+    54 * sizeScale,
     {
-      // restitution: 0.7,
-      // chamfer: { radius: 40 * sizeScale },
+      restitution: 0.7,
+      isStatic: true,
+      chamfer: { radius: 40 * sizeScale },
       render: {
         sprite: {
           texture: link,
@@ -130,40 +137,42 @@ const ChinafySpawn = (link, xSize, i, screenWidth, x, y) => {
   );
 }
 
+const BlockSpawn = (link, xSize, i, screenWidth, x, y) => {
+  // const sizeScale =
+  //   screenWidth >= 1440
+  //     ? 0.7
+  //     : screenWidth >= 769
+  //     ? (screenWidth * 0.7) / 1440
+  //     : screenWidth >= 450
+  //     ? (screenWidth * 1) / 650
+  //     : screenWidth >= 320
+  //     ? (screenWidth * 0.6) / 550
+  //     : 1;
+
+  return Bodies.rectangle(
+    x,
+    y,
+    xSize,
+    55,
+    {
+      restitution: 0.7,
+      chamfer: { radius: 40 },
+      render: {
+        sprite: {
+          texture: link,
+          xScale: 1,
+          yScale: 1,
+        },
+      },
+    }
+  );
+};
+
 const BlocksFall2 = ({ active, anim }) => {
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const BlockSpawn = (link, xSize, i, screenWidth, x, y) => {
-    const sizeScale =
-      screenWidth >= 1440
-        ? 0.7
-        : screenWidth >= 769
-        ? (screenWidth * 0.7) / 1440
-        : screenWidth >= 450
-        ? (screenWidth * 1) / 650
-        : screenWidth >= 320
-        ? (screenWidth * 0.6) / 550
-        : 1;
-
-    return Bodies.rectangle(
-      x,
-      y,
-      xSize * sizeScale,
-      80 * sizeScale,
-      {
-        restitution: 0.7,
-        chamfer: { radius: 40 * sizeScale },
-        render: {
-          sprite: {
-            texture: link,
-            xScale: 1 * sizeScale,
-            yScale: 1 * sizeScale,
-          },
-        },
-      }
-    );
-  };
+  
 
   const RenderScene = () => {
     const screenWidth = window.innerWidth;
@@ -174,7 +183,7 @@ const BlocksFall2 = ({ active, anim }) => {
       const totalWidth = dataChinafy.reduce((total, current) => total + current.xSize, 0);
       const startX = (screenWidth - totalWidth) / 2;
 
-      const block = ChinafySpawn(e.imgLink, e.xSize, i, screenWidth, startX + acc, screenHeight - 100);
+      const block = chinafySpawn(e.imgLink, e.xSize, i, screenWidth, startX + acc, screenHeight - 100);
       acc += e.xSize;
 
       return block;

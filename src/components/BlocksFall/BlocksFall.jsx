@@ -24,30 +24,37 @@ const dataChinafy = [
   {
     imgLink: c,
     xSize: 276,
+    ySize: 100,
   },
   {
     imgLink: h,
     xSize: 184,
+    ySize: 100,
   },
   {
     imgLink: i,
     xSize: 52,
+    ySize: 100,
   },
   {
     imgLink: n,
     xSize: 184,
+    ySize: 100,
   },
   {
     imgLink: a,
     xSize: 177,
+    ySize: 100,
   },
   {
     imgLink: f,
     xSize: 118,
+    ySize: 100,
   },
   {
     imgLink: y,
     xSize: 200,
+    ySize: 100,
   },
 
 ]
@@ -75,7 +82,7 @@ const dataBlocks = [
   },
   {
     imgLink: block6,
-    xSize: 123,
+    xSize: 111,
   },
   {
     imgLink: block7,
@@ -91,7 +98,7 @@ const dataBlocks = [
   },
   {
     imgLink: block10,
-    xSize: 114,
+    xSize: 107,
   },
   {
     imgLink: block11,
@@ -108,6 +115,38 @@ const BlocksFall = ({ active, anim }) => {
   let Render = Matter.Render;
   let World = Matter.World;
   let Bodies = Matter.Bodies;
+
+  const chinafySpawn = (link, xSize, ySize, i, screenWidth, x, y) => {
+    const sizeScale =
+      screenWidth >= 1440
+        ? 0.8
+        : screenWidth >= 769
+        ? (screenWidth * 0.8) / 1440
+        : screenWidth >= 450
+        ? (screenWidth * 1) / 650
+        : screenWidth >= 320
+        ? (screenWidth * 0.6) / 550
+        : 1;
+  
+    return Bodies.rectangle(
+      x,
+      y,
+      xSize * sizeScale,
+      ySize * sizeScale,
+      {
+        restitution: 0.7,
+        isStatic: true,
+        chamfer: { radius: 40 * sizeScale },
+        render: {
+          sprite: {
+            texture: link,
+            xScale: 1 * sizeScale,
+            yScale: 1 * sizeScale,
+          },
+        },
+      }
+    );
+  }
 
   const BlockSpawn = (link, xSize, i, screenWidth) => {
     const sizeScale =
@@ -129,7 +168,7 @@ const BlocksFall = ({ active, anim }) => {
         ? -500 * sizeScale * (1 * (i + 1))
         : -400 * sizeScale * (1 * (i + 1)), // y position
       xSize * sizeScale, // width
-      80 * sizeScale, // height
+      54 * sizeScale, // height
       {
         restitution: 0.7,
         chamfer: { radius: 40 * sizeScale }, // block radius
@@ -201,7 +240,7 @@ const BlocksFall = ({ active, anim }) => {
     })
 
     const wordChinafy = dataChinafy.map((e, i) => {
-      return BlockSpawn(e.imgLink, e.xSize, i, screenWidth);
+      return chinafySpawn(e.imgLink, e.xSize, i, screenWidth);
     })
 
     let mouse = Matter.Mouse.create(render.canvas);
@@ -212,7 +251,7 @@ const BlocksFall = ({ active, anim }) => {
     });
     Render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, floor, wallLeft, wallRight, ...renderBlocks, ...wordChinafy])
+    World.add(engine.world, [mouseConstraint, floor, wallLeft, wallRight, ...wordChinafy, ...renderBlocks])
 
     Engine.run(engine);
     Render.run(render);
