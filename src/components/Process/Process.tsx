@@ -3,6 +3,7 @@ import { process, solutions } from "../../models/models"
 import { motion as m, useScroll, useTransform } from "framer-motion"
 import { SolutionsCard } from "./SolutionsCard/SolutionsCard"
 import { useRef } from "react"
+import SliderCards from "../SliderCards/SliderCards"
 
 const Process = () => {
   const ref = useRef(null)
@@ -29,6 +30,14 @@ const Process = () => {
   return (
     <m.section className="relative h-[200vh] pt-32" id="Process">
       <h3 className="container text-[1.875rem] md:text-[3.5rem] -mb-40 mx-auto">What's The Chinafy Process?</h3>
+
+      {/* <div className="absolute w-[85.9rem] h-full left-0 top-0">
+        <SliderCards amount={ 4 }>
+          { process.map(item =>
+            <ProcessCard key={ item.id } { ...item } />
+          )}
+        </SliderCards>
+      </div> */}
 
       <div  className="sticky top-0 h-[100vh] overflow-hidden">
         <m.div
@@ -133,25 +142,6 @@ const Process = () => {
       </div>
 
       <div ref={ ref } />
-{/* 
-      <div className="sticky top-40 left-0 container h-[32rem] mx-auto" id="Solutions">
-        <m.div
-          className="absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] w-full h-full"
-          style={{
-            scale: scaleProgress2,
-            opacity: opacityProgress2,
-          }}
-        >
-          <h4 className="text-[3.875rem] text-center sm:text-[4.5rem] md:text-[6rem] lg:text-[7rem] xl:text-[9rem] 2xl:text-[10rem] font-medium leading-none">
-            OUR SOLUTIONS
-          </h4>
-        </m.div>
-        <div className="absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] w-full h-full">
-          { solutions.map(solution =>
-            <SolutionsCard key={ solution.id } { ...solution } />
-          )}
-        </div>
-      </div> */}
     </m.section>
   )
 }
