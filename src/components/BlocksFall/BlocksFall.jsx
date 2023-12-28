@@ -1,17 +1,18 @@
 import { useEffect, useRef } from "react";
 import Matter from "matter-js";
 
-import block1 from "../../assets/blocks/1.png";
-import block2 from "../../assets/blocks/2.png";
-import block3 from "../../assets/blocks/3.png";
-import block4 from "../../assets/blocks/4.png";
-import block5 from "../../assets/blocks/5.png";
-import block6 from "../../assets/blocks/6.png";
-import block7 from "../../assets/blocks/7.png";
-import block8 from "../../assets/blocks/8.png";
-import block9 from "../../assets/blocks/9.png";
-import block10 from "../../assets/blocks/10.png";
-import block11 from "../../assets/blocks/11.png";
+import block1 from "../../assets/blocks/1.png"
+import block2 from "../../assets/blocks/2.png"
+import block3 from "../../assets/blocks/3.png"
+import block4 from "../../assets/blocks/4.png"
+import block5 from "../../assets/blocks/5.png"
+import block6 from "../../assets/blocks/6.png"
+import block7 from "../../assets/blocks/7.png"
+import block8 from "../../assets/blocks/8.png"
+import block9 from "../../assets/blocks/9.png"
+import block10 from "../../assets/blocks/10.png"
+import block11 from "../../assets/blocks/11.png"
+import chinafy from "../../assets/blocks/chinafy.png"
 
 const dataBlocks = [
   {
@@ -61,8 +62,9 @@ const dataBlocks = [
 ]
 
 const BlocksFall = ({ active, anim }) => {
-  const boxRef = useRef(null);
-  const canvasRef = useRef(null);
+  const boxRef = useRef(null)
+  const canvasRef = useRef(null)
+  const textRef = useRef(null)
 
   //Initialize world
   let Engine = Matter.Engine;
@@ -106,8 +108,8 @@ const BlocksFall = ({ active, anim }) => {
   };
 
   const RenderScene = () => {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth
+    const screenHeight = window.innerHeight
 
     let engine = Engine.create({});
 
@@ -136,7 +138,24 @@ const BlocksFall = ({ active, anim }) => {
           fillStyle: "none",
         },
       }
-    );
+    )
+
+    // const text = Matter.Bodies.rectangle(
+    //   screenWidth / 2,
+    //   screenHeight - 50, // Положение текста "Chinafy" внизу экрана
+    //   1400, // Ширина текста (можно подогнать под ваш дизайн)
+    //   400, // Высота текста
+    //   {
+    //     isStatic: true,
+    //     render: {
+    //       sprite: {
+    //         texture: chinafy, // Путь к изображению "Chinafy"
+    //       },
+    //     },
+    //   }
+    // );
+
+
 
     const wallRight = Bodies.rectangle(
       screenWidth, // position x
@@ -170,7 +189,7 @@ const BlocksFall = ({ active, anim }) => {
     });
     Render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, floor, wallLeft, wallRight, ...renderBlocks]);
+    World.add(engine.world, [mouseConstraint, floor, wallLeft, wallRight, ...renderBlocks])
 
     Engine.run(engine);
     Render.run(render);
