@@ -62,7 +62,7 @@ const Footer = () => {
       </div>
 
       <div className="absolute top-0 w-full h-full" >
-        <BlocksFall2 active={isActive} anim={isAnimated} />
+        <BlocksFall active={isActive} anim={isAnimated} />
       </div>
 
       {/* <div className="">

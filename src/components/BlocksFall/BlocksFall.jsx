@@ -24,39 +24,52 @@ const dataChinafy = [
   {
     imgLink: c,
     xSize: 276,
-    ySize: 100,
+    ySize: 308,
+    x: 80,
+    y: 100,
   },
   {
     imgLink: h,
     xSize: 184,
-    ySize: 100,
+    ySize: 304,
+    x: 240,
+    y: 100,
   },
   {
     imgLink: i,
     xSize: 52,
-    ySize: 100,
+    ySize: 301,
+    x: 330,
+    y: 0,
   },
   {
     imgLink: n,
     xSize: 184,
-    ySize: 100,
+    ySize: 208,
+    x: 430,
+    y: 0,
   },
   {
     imgLink: a,
     xSize: 177,
-    ySize: 100,
+    ySize: 213,
+    x: 560,
+    y: 0,
   },
   {
     imgLink: f,
     xSize: 118,
-    ySize: 100,
+    ySize: 304,
+    x: 680,
+    y: 0,
   },
   {
     imgLink: y,
     xSize: 200,
-    ySize: 100,
+    ySize: 297,
+    x: 800,
+    y: 0,
   },
-
 ]
 
 const dataBlocks = [
@@ -116,7 +129,20 @@ const BlocksFall = ({ active, anim }) => {
   let World = Matter.World;
   let Bodies = Matter.Bodies;
 
-  const chinafySpawn = (link, xSize, ySize, i, screenWidth, x, y) => {
+  // const floor = Bodies.rectangle(
+  //   screenWidth / 2, // scene position x
+  //   screenHeight + 50, // scene position y
+  //   screenWidth, // scene width
+  //   100, // scene height
+  //   {
+  //     isStatic: true,
+  //     render: {
+  //       fillStyle: "none",
+  //     },
+  //   }
+  // )
+
+  const chinafySpawn = (link, xSize, ySize, i, x, y, screenWidth) => {
     const sizeScale =
       screenWidth >= 1440
         ? 0.8
@@ -129,6 +155,9 @@ const BlocksFall = ({ active, anim }) => {
         : 1;
   
     return Bodies.rectangle(
+      // screenWidth / 2, // scene position x
+      // screenHeight + 50, // scene position y
+      // screenWidth, // scene width
       x,
       y,
       xSize * sizeScale,
@@ -240,7 +269,7 @@ const BlocksFall = ({ active, anim }) => {
     })
 
     const wordChinafy = dataChinafy.map((e, i) => {
-      return chinafySpawn(e.imgLink, e.xSize, i, screenWidth);
+      return chinafySpawn(e.imgLink, e.xSize, e.ySize, i, e.x, e.y, screenWidth, screenHeight);
     })
 
     let mouse = Matter.Mouse.create(render.canvas);

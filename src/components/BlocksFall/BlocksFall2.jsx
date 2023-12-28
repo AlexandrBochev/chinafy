@@ -28,34 +28,52 @@ const dataChinafy = [
   {
     imgLink: c,
     xSize: 276,
-    // ySize: 100,
-    // x: 0,
+    ySize: 308,
+    x: 80,
+    y: 0,
   },
   {
     imgLink: h,
     xSize: 184,
+    ySize: 304,
+    x: 240,
+    y: 0,
   },
   {
     imgLink: i,
     xSize: 52,
+    ySize: 301,
+    x: 330,
+    y: 0,
   },
   {
     imgLink: n,
     xSize: 184,
+    ySize: 208,
+    x: 430,
+    y: 0,
   },
   {
     imgLink: a,
     xSize: 177,
+    ySize: 213,
+    x: 560,
+    y: 0,
   },
   {
     imgLink: f,
     xSize: 118,
+    ySize: 304,
+    x: 680,
+    y: 0,
   },
   {
     imgLink: y,
     xSize: 200,
+    ySize: 297,
+    x: 800,
+    y: 0,
   },
-
 ]
 
 const dataBlocks = [
@@ -105,74 +123,72 @@ const dataBlocks = [
   },
 ]
 
-const chinafySpawn = (link, xSize, ySize, i, screenWidth, x, y) => {
-  const sizeScale =
-    screenWidth >= 1440
-      ? 0.8
-      : screenWidth >= 769
-      ? (screenWidth * 0.8) / 1440
-      : screenWidth >= 450
-      ? (screenWidth * 1) / 650
-      : screenWidth >= 320
-      ? (screenWidth * 0.6) / 550
-      : 1;
-
-  return Bodies.rectangle(
-    x,
-    y,
-    xSize * sizeScale,
-    54 * sizeScale,
-    {
-      restitution: 0.7,
-      isStatic: true,
-      chamfer: { radius: 40 * sizeScale },
-      render: {
-        sprite: {
-          texture: link,
-          xScale: 1 * sizeScale,
-          yScale: 1 * sizeScale,
-        },
-      },
-    }
-  );
-}
-
-const BlockSpawn = (link, xSize, i, screenWidth, x, y) => {
-  // const sizeScale =
-  //   screenWidth >= 1440
-  //     ? 0.7
-  //     : screenWidth >= 769
-  //     ? (screenWidth * 0.7) / 1440
-  //     : screenWidth >= 450
-  //     ? (screenWidth * 1) / 650
-  //     : screenWidth >= 320
-  //     ? (screenWidth * 0.6) / 550
-  //     : 1;
-
-  return Bodies.rectangle(
-    x,
-    y,
-    xSize,
-    55,
-    {
-      restitution: 0.7,
-      chamfer: { radius: 40 },
-      render: {
-        sprite: {
-          texture: link,
-          xScale: 1,
-          yScale: 1,
-        },
-      },
-    }
-  );
-};
-
 const BlocksFall2 = ({ active, anim }) => {
   const boxRef = useRef(null);
   const canvasRef = useRef(null);
 
-  
+  const ChinafySpawn = (link, xSize, ySize, i, screenWidth, x, y) => {
+    const sizeScale =
+      screenWidth >= 1440
+        ? 0.7
+        : screenWidth >= 769
+        ? (screenWidth * 0.7) / 1440
+        : screenWidth >= 450
+        ? (screenWidth * 1) / 650
+        : screenWidth >= 320
+        ? (screenWidth * 0.6) / 550
+        : 1;
+
+    return Bodies.rectangle(
+      x,
+      y,
+      xSize * sizeScale,
+      ySize * sizeScale,
+      {
+        restitution: 0.7,
+        isStatic: true,
+        chamfer: { radius: 40 * sizeScale },
+        render: {
+          sprite: {
+            texture: link,
+            xScale: 1 * sizeScale,
+            yScale: 1 * sizeScale,
+          },
+        },
+      }
+    );
+  }
+
+  const BlockSpawn = (link, xSize, i, screenWidth, x, y) => {
+    const sizeScale =
+      screenWidth >= 1440
+        ? 0.7
+        : screenWidth >= 769
+        ? (screenWidth * 0.7) / 1440
+        : screenWidth >= 450
+        ? (screenWidth * 1) / 650
+        : screenWidth >= 320
+        ? (screenWidth * 0.6) / 550
+        : 1;
+
+    return Bodies.rectangle(
+      x,
+      y,
+      xSize * sizeScale,
+      54 * sizeScale,
+      {
+        restitution: 0.7,
+        chamfer: { radius: 40 * sizeScale },
+        render: {
+          sprite: {
+            texture: link,
+            xScale: 1 * sizeScale,
+            yScale: 1 * sizeScale,
+          },
+        },
+      }
+    );
+  };
 
   const RenderScene = () => {
     const screenWidth = window.innerWidth;
@@ -183,7 +199,7 @@ const BlocksFall2 = ({ active, anim }) => {
       const totalWidth = dataChinafy.reduce((total, current) => total + current.xSize, 0);
       const startX = (screenWidth - totalWidth) / 2;
 
-      const block = chinafySpawn(e.imgLink, e.xSize, i, screenWidth, startX + acc, screenHeight - 100);
+      const block = ChinafySpawn(e.imgLink, e.xSize, e.ySize, i, screenWidth, e.x, screenHeight - 50);
       acc += e.xSize;
 
       return block;
