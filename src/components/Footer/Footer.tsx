@@ -4,6 +4,7 @@ import earth from '../../assets/earth.svg'
 import { Button } from '../Button/Button'
 import { footerButtons } from '../../models/models'
 import { BlocksFall } from '../BlocksFall/BlocksFall'
+import { BlocksFall2 } from '../BlocksFall/BlocksFall2'
 
 const Footer = () => {
   const [isActive, setIsActive] = useState(false);
@@ -60,8 +61,8 @@ const Footer = () => {
         <Button black>Get Started</Button>
       </div>
 
-      <div className="absolute top-0 container h-full" >
-        <BlocksFall active={isActive} anim={isAnimated} />
+      <div className="absolute top-0 w-full h-full" >
+        <BlocksFall2 active={isActive} anim={isAnimated} />
       </div>
 
       {/* <div className="">
@@ -78,7 +79,7 @@ const Footer = () => {
         )}
       </div> */}
 
-      <div className="text-background font-medium text-[28vw] mb-8 md:mb-12">Chinafy</div>
+      {/* <div className="text-background font-medium text-[28vw] mb-8 md:mb-12">Chinafy</div> */}
     </section>
   )
 }

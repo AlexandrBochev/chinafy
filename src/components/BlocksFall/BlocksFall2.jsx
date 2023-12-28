@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Matter from "matter-js";
+import Matter, { Bodies } from "matter-js";
 
 import block1 from "../../assets/blocks/1.png"
 import block2 from "../../assets/blocks/2.png"
@@ -99,40 +99,61 @@ const dataBlocks = [
   },
 ]
 
-const BlocksFall = ({ active, anim }) => {
-  const boxRef = useRef(null)
-  const canvasRef = useRef(null)
+const ChinafySpawn = (link, xSize, i, screenWidth, x, y) => {
+  const sizeScale =
+    screenWidth >= 1440
+      ? 0.7
+      : screenWidth >= 769
+      ? (screenWidth * 0.7) / 1440
+      : screenWidth >= 450
+      ? (screenWidth * 1) / 650
+      : screenWidth >= 320
+      ? (screenWidth * 0.6) / 550
+      : 1;
 
-  //Initialize world
-  let Engine = Matter.Engine;
-  let Render = Matter.Render;
-  let World = Matter.World;
-  let Bodies = Matter.Bodies;
+  return Bodies.rectangle(
+    x,
+    y,
+    xSize * sizeScale,
+    80 * sizeScale,
+    {
+      // restitution: 0.7,
+      // chamfer: { radius: 40 * sizeScale },
+      render: {
+        sprite: {
+          texture: link,
+          xScale: 1 * sizeScale,
+          yScale: 1 * sizeScale,
+        },
+      },
+    }
+  );
+}
 
-  const BlockSpawn = (link, xSize, i, screenWidth) => {
+const BlocksFall2 = ({ active, anim }) => {
+  const boxRef = useRef(null);
+  const canvasRef = useRef(null);
+
+  const BlockSpawn = (link, xSize, i, screenWidth, x, y) => {
     const sizeScale =
       screenWidth >= 1440
-        ? .7 //desktop
+        ? 0.7
         : screenWidth >= 769
-          ? (screenWidth * .7) / 1440 //desktop small
-          : screenWidth >= 450
-            ? (screenWidth * 1) / 650 //tablet
-            : screenWidth >= 320
-              ? (screenWidth * .6) / 550 //mobile
-              : 1;
+        ? (screenWidth * 0.7) / 1440
+        : screenWidth >= 450
+        ? (screenWidth * 1) / 650
+        : screenWidth >= 320
+        ? (screenWidth * 0.6) / 550
+        : 1;
 
     return Bodies.rectangle(
-      screenWidth <= 768
-        ? 30 * sizeScale + 30 * sizeScale * (i + 1)
-        : 90 * sizeScale + 140 * sizeScale * (i + 1), // x position
-      i % 2
-        ? -500 * sizeScale * (1 * (i + 1))
-        : -400 * sizeScale * (1 * (i + 1)), // y position
-      xSize * sizeScale, // width
-      80 * sizeScale, // height
+      x,
+      y,
+      xSize * sizeScale,
+      80 * sizeScale,
       {
         restitution: 0.7,
-        chamfer: { radius: 40 * sizeScale }, // block radius
+        chamfer: { radius: 40 * sizeScale },
         render: {
           sprite: {
             texture: link,
@@ -145,13 +166,24 @@ const BlocksFall = ({ active, anim }) => {
   };
 
   const RenderScene = () => {
-    const screenWidth = window.innerWidth
-    const screenHeight = window.innerHeight
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-    let engine = Engine.create({}); // create engine
-    engine.gravity.y = 0.7; // set gravity
+    let acc = 0;
+    const wordChinafy = dataChinafy.map((e, i) => {
+      const totalWidth = dataChinafy.reduce((total, current) => total + current.xSize, 0);
+      const startX = (screenWidth - totalWidth) / 2;
 
-    let render = Render.create({
+      const block = ChinafySpawn(e.imgLink, e.xSize, i, screenWidth, startX + acc, screenHeight - 100);
+      acc += e.xSize;
+
+      return block;
+    });
+
+    const engine = Matter.Engine.create({});
+    engine.gravity.y = 0.7;
+
+    const render = Matter.Render.create({
       element: boxRef.current,
       engine: engine,
       canvas: canvasRef.current,
@@ -164,23 +196,10 @@ const BlocksFall = ({ active, anim }) => {
     });
 
     const floor = Bodies.rectangle(
-      screenWidth / 2, // scene position x
-      screenHeight + 50, // scene position y
-      screenWidth, // scene width
-      100, // scene height
-      {
-        isStatic: true,
-        render: {
-          fillStyle: "none",
-        },
-      }
-    )
-
-    const wallRight = Bodies.rectangle(
-      screenWidth, // position x
-      screenHeight / 2, // position y
-      1, // width
-      screenHeight, // height
+      screenWidth / 2,
+      screenHeight + 50,
+      screenWidth,
+      100,
       {
         isStatic: true,
         render: {
@@ -189,44 +208,34 @@ const BlocksFall = ({ active, anim }) => {
       }
     );
 
-    const wallLeft = Bodies.rectangle(0, screenHeight / 2, 1, screenHeight, {
-      isStatic: true,
-      render: {
-        fillStyle: "none",
-      },
-    })
-
-    const renderBlocks = dataBlocks.map((e, i) => {
-      return BlockSpawn(e.imgLink, e.xSize, i, screenWidth);
-    })
-
-    const wordChinafy = dataChinafy.map((e, i) => {
-      return BlockSpawn(e.imgLink, e.xSize, i, screenWidth);
-    })
-
-    let mouse = Matter.Mouse.create(render.canvas);
-    let mouseConstraint = Matter.MouseConstraint.create(engine, {
-      mouse: mouse, constraint: {
-        render: { visible: false }
-      }
+    const blocks = dataBlocks.map((e, i) => {
+      return BlockSpawn(e.imgLink, e.xSize, i, screenWidth, Math.random() * screenWidth, -Math.random() * 500);
     });
-    Render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, floor, wallLeft, wallRight, ...renderBlocks, ...wordChinafy])
+    const mouse = Matter.Mouse.create(render.canvas);
+    const mouseConstraint = Matter.MouseConstraint.create(engine, {
+      mouse: mouse,
+      constraint: {
+        render: { visible: false },
+      },
+    });
+    Matter.Render.mouse = mouse;
 
-    Engine.run(engine);
-    Render.run(render);
+    Matter.World.add(engine.world, [mouseConstraint, floor, ...wordChinafy, ...blocks]);
+
+    Matter.Engine.run(engine);
+    Matter.Render.run(render);
   };
 
   useEffect(() => {
     active && anim && RenderScene();
-  }, [active])
+  }, [active, anim]);
 
   return (
     <div className="w-full h-full pointer-events-none" ref={boxRef}>
       <canvas className="w-full h-full pointer-events-none" ref={canvasRef} />
     </div>
   );
-}
+};
 
-export { BlocksFall }
+export { BlocksFall2 };
