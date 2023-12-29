@@ -25,50 +25,50 @@ const dataChinafy = [
     imgLink: c,
     xSize: 276,
     ySize: 308,
-    x: 80,
-    y: 100,
+    x: 150,
+    y: 65,
   },
   {
     imgLink: h,
     xSize: 184,
     ySize: 304,
-    x: 240,
-    y: 100,
+    x: 430,
+    y: 65,
   },
   {
     imgLink: i,
     xSize: 52,
     ySize: 301,
-    x: 330,
-    y: 0,
+    x: 590,
+    y: 65,
   },
   {
     imgLink: n,
     xSize: 184,
     ySize: 208,
-    x: 430,
-    y: 0,
+    x: 755,
+    y: 20,
   },
   {
     imgLink: a,
     xSize: 177,
     ySize: 213,
-    x: 560,
-    y: 0,
+    x: 975,
+    y: 20,
   },
   {
     imgLink: f,
     xSize: 118,
     ySize: 304,
-    x: 680,
-    y: 0,
+    x: 1160,
+    y: 65,
   },
   {
     imgLink: y,
     xSize: 200,
     ySize: 297,
-    x: 800,
-    y: 0,
+    x: 1330,
+    y: - 30,
   },
 ]
 
@@ -124,44 +124,19 @@ const BlocksFall = ({ active, anim }) => {
   const canvasRef = useRef(null)
 
   //Initialize world
-  let Engine = Matter.Engine;
-  let Render = Matter.Render;
-  let World = Matter.World;
-  let Bodies = Matter.Bodies;
+  let Engine = Matter.Engine
+  let Render = Matter.Render
+  let World = Matter.World
+  let Bodies = Matter.Bodies
 
-  // const floor = Bodies.rectangle(
-  //   screenWidth / 2, // scene position x
-  //   screenHeight + 50, // scene position y
-  //   screenWidth, // scene width
-  //   100, // scene height
-  //   {
-  //     isStatic: true,
-  //     render: {
-  //       fillStyle: "none",
-  //     },
-  //   }
-  // )
-
-  const chinafySpawn = (link, xSize, ySize, i, x, y, screenWidth) => {
-    const sizeScale =
-      screenWidth >= 1440
-        ? 0.8
-        : screenWidth >= 769
-        ? (screenWidth * 0.8) / 1440
-        : screenWidth >= 450
-        ? (screenWidth * 1) / 650
-        : screenWidth >= 320
-        ? (screenWidth * 0.6) / 550
-        : 1;
+  const chinafySpawn = (link, xSize, ySize, x, y, screenWidth, screenHeight) => {
+    const sizeScale = screenWidth / 1440
   
     return Bodies.rectangle(
-      // screenWidth / 2, // scene position x
-      // screenHeight + 50, // scene position y
-      // screenWidth, // scene width
-      x,
-      y,
-      xSize * sizeScale,
-      ySize * sizeScale,
+      x * sizeScale, // scene position x
+      screenHeight - sizeScale * y, // scene position y
+      xSize * sizeScale, // scene width
+      ySize * sizeScale, // scene height
       {
         restitution: 0.7,
         isStatic: true,
@@ -178,16 +153,7 @@ const BlocksFall = ({ active, anim }) => {
   }
 
   const BlockSpawn = (link, xSize, i, screenWidth) => {
-    const sizeScale =
-      screenWidth >= 1440
-        ? .7 //desktop
-        : screenWidth >= 769
-          ? (screenWidth * .7) / 1440 //desktop small
-          : screenWidth >= 450
-            ? (screenWidth * 1) / 650 //tablet
-            : screenWidth >= 320
-              ? (screenWidth * .6) / 550 //mobile
-              : 1;
+    const sizeScale = screenWidth / 1440
 
     return Bodies.rectangle(
       screenWidth <= 768
@@ -269,7 +235,7 @@ const BlocksFall = ({ active, anim }) => {
     })
 
     const wordChinafy = dataChinafy.map((e, i) => {
-      return chinafySpawn(e.imgLink, e.xSize, e.ySize, i, e.x, e.y, screenWidth, screenHeight);
+      return chinafySpawn(e.imgLink, e.xSize, e.ySize, e.x, e.y, screenWidth, screenHeight);
     })
 
     let mouse = Matter.Mouse.create(render.canvas);

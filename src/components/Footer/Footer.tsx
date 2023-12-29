@@ -10,9 +10,6 @@ const Footer = () => {
   const [isActive, setIsActive] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
 
-  console.log(isActive)
-  console.log(isAnimated)
-
   useEffect(() => {
     const handleScroll = () => {
       const component = document.getElementById('componentId'); // Замените 'yourComponentId' на ID вашего компонента
@@ -39,7 +36,7 @@ const Footer = () => {
   return (
     <section
       id="componentId"
-      className="relative w-full flex flex-col items-center bg-lilac rounded-t-[3.75rem] lg:rounded-t-[5rem] pt-[3.75rem] lg:pt-[5rem] -mt-[3.75rem] lg:-mt-[5rem] overflow-hidden"
+      className="relative w-full h-[42.375rem] flex flex-col items-center bg-lilac rounded-t-[3.75rem] lg:rounded-t-[5rem] pt-[3.75rem] lg:pt-[5rem] -mt-[3.75rem] lg:-mt-[5rem] overflow-hidden"
     >
 
       {/* Heading */}
