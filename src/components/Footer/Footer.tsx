@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react'
 import twoCircles from '../../assets/two-circles.svg'
 import earth from '../../assets/earth.svg'
 import { Button } from '../Button/Button'
-import { footerButtons } from '../../models/models'
 import { BlocksFall } from '../BlocksFall/BlocksFall'
-import { BlocksFall2 } from '../BlocksFall/BlocksFall2'
 
 const Footer = () => {
   const [isActive, setIsActive] = useState(false);
@@ -62,21 +60,6 @@ const Footer = () => {
         <BlocksFall active={isActive} anim={isAnimated} />
       </div>
 
-      {/* <div className="">
-        {footerButtons.map(button =>
-          <div
-            key={ button.id }
-            className={`
-              absolute top-0 flex items-center justify-center text-[0.5rem] md:text-[1rem] h-6 md:h-14 px-3 md:px-8 rounded-full
-              ${ button.color }
-            `}
-          >
-            { button.name }
-          </div>
-        )}
-      </div> */}
-
-      {/* <div className="text-background font-medium text-[28vw] mb-8 md:mb-12">Chinafy</div> */}
     </section>
   )
 }
